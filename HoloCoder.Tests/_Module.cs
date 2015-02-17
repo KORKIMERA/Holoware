@@ -16,7 +16,7 @@ namespace HoloCoder.Tests
     public class _Module
     {
         [TestMethod]
-        public void load_Module()
+        public void load_module()
         {
             // Setup
             var viewModel = new ModuleViewModel();
