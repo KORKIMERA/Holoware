@@ -53,6 +53,7 @@
     <Compile Include="_Class.cs" />
     <Compile Include="_Architecture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Module.cs" />
     <Compile Include="_Modules.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\HoloCoder.TestAPI\HoloCoder.TestAPI.csproj">
       <Project>{e8eb2fc9-5d3b-49ce-94f5-617dafb36de2}</Project>
       <Name>HoloCoder.TestAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
+      <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
+      <Name>ModuleModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
       <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>

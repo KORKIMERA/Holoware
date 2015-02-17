@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="MockArchitectureServices.cs" />
     <Compile Include="MockClassServices.cs" />
+    <Compile Include="MockModuleServices.cs" />
     <Compile Include="MockModulesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
