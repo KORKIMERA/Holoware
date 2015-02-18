@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrchestrationModule;
 using OrchestrationModule.ApplicationStates;
 
-namespace HoloCoder.Tests
+namespace Holoware.Tests
 {
     [TestClass]
     public class _WorkflowOrchestrator

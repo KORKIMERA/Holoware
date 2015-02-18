@@ -1,9 +1,9 @@
-﻿using HoloCoder.TestAPI;
+﻿using Holoware.TestAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModulesModule.Infrastructure;
 using ModulesModule.ViewModels;
 
-namespace HoloCoder.Tests
+namespace Holoware.Tests
 {
     [TestClass]
     public class _Modules

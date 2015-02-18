@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HoloCoder.UserControls
+namespace ArchitectureModule.UI.Views
 {
     /// <summary>
-    /// Interaction logic for Module.xaml
+    /// Interaction logic for Architecture.xaml
     /// </summary>
-    public partial class Module : UserControl
+    public partial class Architecture : UserControl
     {
-        public Module()
+        public Architecture()
         {
             InitializeComponent();
         }

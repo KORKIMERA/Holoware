@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloCoder", "HoloEditor\HoloCoder.csproj", "{CED68376-B2AF-4DFF-B83D-F082D4D1CECC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holoware", "HoloEditor\Holoware.csproj", "{CED68376-B2AF-4DFF-B83D-F082D4D1CECC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureModule", "ArchitectureModule\ArchitectureModule.csproj", "{8542EEB9-EE3D-49DA-8185-E2EA2A9FEDE8}"
 EndProject

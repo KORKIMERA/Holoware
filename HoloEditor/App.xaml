@@ -1,8 +1,8 @@
-﻿ <Application x:Class="HoloCoder.App"
+﻿ <Application x:Class="Holoware.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:HoloCoder"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:Holoware"
+             StartupUri="Shell.xaml">
     <Application.Resources>
          
     </Application.Resources>

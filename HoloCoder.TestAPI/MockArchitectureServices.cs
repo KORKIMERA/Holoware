@@ -4,7 +4,7 @@ using ArchitectureModule.Entities;
 using ArchitectureModule.Infrastructure;
 using ModuleModule.Entities;
 
-namespace HoloCoder.TestAPI
+namespace Holoware.TestAPI
 {
     public class MockArchitectureServices : IArchitectureServices
     {

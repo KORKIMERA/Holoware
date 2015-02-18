@@ -3,7 +3,7 @@ using ModulesModule.Entities;
 using ModulesModule.Infrastructure;
 using ModuleModule.Entities;
 
-namespace HoloCoder.TestAPI
+namespace Holoware.TestAPI
 {
     public class MockModulesServices : IModulesServices
     {

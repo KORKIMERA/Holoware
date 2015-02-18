@@ -51,6 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ViewModels\LoadArchitectureViewModel.cs" />
     <Compile Include="UI\ViewModels\CreateArchitectureViewModel.cs" />
+    <Compile Include="UI\Views\Architecture.xaml.cs">
+      <DependentUpon>Architecture.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\CreateArchitecturePage.xaml.cs">
       <DependentUpon>CreateArchitecturePage.xaml</DependentUpon>
     </Compile>
@@ -59,12 +62,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassModule\ClassModule.csproj">
+      <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
+      <Name>ClassModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
       <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
       <Name>ModuleModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
+      <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
+      <Name>ModulesModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\Views\Architecture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\Views\CreateArchitecturePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

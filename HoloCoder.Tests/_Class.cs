@@ -1,6 +1,6 @@
 ﻿using ClassModule.Infrastructure;
 using ClassModule.ViewModels;
-using HoloCoder.TestAPI;
+using Holoware.TestAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HoloCoder.Tests
+namespace Holoware.Tests
 {
     [TestClass]
     public class _Class

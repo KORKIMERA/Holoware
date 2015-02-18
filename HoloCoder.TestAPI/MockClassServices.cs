@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassModule.Entities;
 
-namespace HoloCoder.TestAPI
+namespace Holoware.TestAPI
 {
     public class MockClassServices : IClassServices
     {
