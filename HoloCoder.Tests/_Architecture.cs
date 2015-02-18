@@ -12,7 +12,7 @@ namespace HoloCoder.Tests
         public void load_architecture()
         {
             // Setup
-            var viewModel = new ArchitectureViewModel();
+            var viewModel = new LoadArchitectureViewModel();
             var dependencies = new ArchiectureDependencies() { Services = new MockArchitectureServices() };
             viewModel.Initialize(dependencies);
 

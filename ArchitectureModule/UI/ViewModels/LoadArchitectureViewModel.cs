@@ -3,7 +3,7 @@ using ArchitectureModule.Infrastructure;
 
 namespace ArchitectureModule.ViewModels
 {
-    public class ArchitectureViewModel
+    public class LoadArchitectureViewModel
     {
         #region Members
         IArchitectureServices _services = null;

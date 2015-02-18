@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8542EEB9-EE3D-49DA-8185-E2EA2A9FEDE8}</ProjectGuid>
+    <ProjectGuid>{4B986E6A-1478-4587-BCB1-991BCCB22019}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchitectureModule</RootNamespace>
-    <AssemblyName>ArchitectureModule</AssemblyName>
+    <RootNamespace>RepositoryModule</RootNamespace>
+    <AssemblyName>RepositoryModule</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,39 +37,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Architecture.cs" />
-    <Compile Include="Infrastructure\ArchitectureServices.cs" />
-    <Compile Include="Infrastructure\Dependencies.cs" />
-    <Compile Include="Infrastructure\IArchitectureServices.cs" />
-    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ViewModels\LoadArchitectureViewModel.cs" />
-    <Compile Include="UI\ViewModels\CreateArchitectureViewModel.cs" />
-    <Compile Include="UI\Views\CreateArchitecturePage.xaml.cs">
-      <DependentUpon>CreateArchitecturePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Views\LoadArchitectureView.xaml.cs">
-      <DependentUpon>LoadArchitectureView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
-      <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
-      <Name>ModuleModule</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="UI\Views\CreateArchitecturePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Views\LoadArchitectureView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
