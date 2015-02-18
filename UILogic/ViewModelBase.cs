@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Bizmonger.UILogic.Interactions
+namespace Bizmonger.UILogic
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

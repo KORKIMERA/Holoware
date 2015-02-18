@@ -71,7 +71,10 @@
     <Compile Include="Converters\Boolean\VisibilityToBoolNegationConverter.cs" />
     <Compile Include="Converters\String\TruncateEnumerablesConverter.cs" />
     <Compile Include="Converters\ZeroToNullConverter.cs" />
-    <Compile Include="Interactions\ViewModelBase.cs" />
+    <Compile Include="Interactions\ConfirmationInteraction.cs" />
+    <Compile Include="Interactions\IConfirmationInteraction.cs" />
+    <Compile Include="ViewLocator.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +83,7 @@
       <Name>Bizmonger.IO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
