@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportingModule", "Reportin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityModules", "UtilityModules", "{CDB72F61-06FA-4FF5-BFEB-533D18663278}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowOrchestrationModule", "OrchestrationModule\WorkflowOrchestrationModule.csproj", "{08701EDC-0A55-4EF0-9E15-D373C54667EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{49ED65AA-519F-48CE-9682-0BF306B14F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49ED65AA-519F-48CE-9682-0BF306B14F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49ED65AA-519F-48CE-9682-0BF306B14F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08701EDC-0A55-4EF0-9E15-D373C54667EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08701EDC-0A55-4EF0-9E15-D373C54667EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08701EDC-0A55-4EF0-9E15-D373C54667EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08701EDC-0A55-4EF0-9E15-D373C54667EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{07A964AC-BDCF-42A8-B12C-C91D4FF29BA6} = {9C35BCE9-9A31-4E0A-9AC7-AD72C0DF2A87}
 		{49ED65AA-519F-48CE-9682-0BF306B14F66} = {9C35BCE9-9A31-4E0A-9AC7-AD72C0DF2A87}
 		{CDB72F61-06FA-4FF5-BFEB-533D18663278} = {08225140-808A-40D3-B42A-EB5B0DB1B607}
+		{08701EDC-0A55-4EF0-9E15-D373C54667EB} = {B5676292-9947-4AE0-9211-0FB5A399F21E}
 	EndGlobalSection
 EndGlobal
