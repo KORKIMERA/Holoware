@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace Bismonger.IO
+namespace Bizmonger.IO
 {
     public class FileComparer
     {

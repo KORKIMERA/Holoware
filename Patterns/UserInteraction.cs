@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public class UserInteraction : IUserInteraction
     {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace Bismonger.IO
+namespace Bizmonger.IO
 {
     public class DocumentUtilities
     {

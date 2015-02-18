@@ -1,5 +1,5 @@
 ﻿
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public enum ParticipationType
     {

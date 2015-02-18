@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Data;
 
-namespace Bismonger.UILogic.Converters
+namespace Bizmonger.UILogic.Converters
 {
     public class TruncateEnumerablesConverter : IValueConverter
     {

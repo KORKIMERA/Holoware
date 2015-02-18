@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Bismonger.UILogic.Converters
+namespace Bizmonger.UILogic.Converters
 {
     public class NetValueConverter : IValueConverter
     {

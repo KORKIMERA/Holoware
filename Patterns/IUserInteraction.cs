@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public delegate MessageBoxResult RequestInteractionHandler(object sender, UserInteractionEventArgs e);
 

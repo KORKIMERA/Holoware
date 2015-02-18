@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Data;
 
-namespace Bismonger.UILogic.Converters
+namespace Bizmonger.UILogic.Converters
 {
     public class FilePathToFileConverter : IValueConverter
     {

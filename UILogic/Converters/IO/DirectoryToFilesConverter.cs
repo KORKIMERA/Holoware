@@ -1,11 +1,11 @@
-﻿using Bismonger.IO;
+﻿using Bizmonger.IO;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Data;
 
-namespace Bismonger.UILogic.Converters
+namespace Bizmonger.UILogic.Converters
 {
     public class DirectoryToFilesConverter : IValueConverter
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public class DelegateCommand : ICommand
     {

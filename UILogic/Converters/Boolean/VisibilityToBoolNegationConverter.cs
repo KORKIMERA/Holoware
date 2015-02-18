@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace Bismonger.UILogic.Converters
+namespace Bizmonger.UILogic.Converters
 {
     public class VisibilityToBoolNegationConverter : IValueConverter
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public class MessageBus
     {

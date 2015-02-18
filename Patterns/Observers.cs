@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public class Observer
     {

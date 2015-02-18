@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Bismonger.IO
+namespace Bizmonger.IO
 {
     public class FileSystemHelpers
     {

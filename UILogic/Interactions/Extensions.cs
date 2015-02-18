@@ -4,8 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Telerik.Windows.Controls;
-using Telerik.Windows.Controls.GridView;
 
 namespace Bismonger.UILogic.Interactions
 {

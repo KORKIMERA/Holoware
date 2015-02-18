@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bismonger.Patterns
+namespace Bizmonger.Patterns
 {
     public class ResourceLocator : Dictionary<Type, object>
     {
