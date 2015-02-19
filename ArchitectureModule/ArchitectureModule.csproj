@@ -62,6 +62,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassModule\ClassModule.csproj">
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>
@@ -73,6 +77,18 @@
     <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
       <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
       <Name>ModulesModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationModule\NotificationModule.csproj">
+      <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
+      <Name>NotificationModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
+      <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
+      <Name>Bizmonger.UILogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

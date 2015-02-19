@@ -61,6 +61,10 @@
       <Project>{8542eeb9-ee3d-49da-8185-e2ea2a9fede8}</Project>
       <Name>ArchitectureModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassModule\ClassModule.csproj">
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>

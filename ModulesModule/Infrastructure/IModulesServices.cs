@@ -1,8 +1,9 @@
-﻿using ModulesModule.Entities;
+﻿using BaseModule;
+using ModulesModule.Entities;
 
 namespace ModulesModule.Infrastructure
 {
-    public interface IModulesServices
+    public interface IModulesServices : IModuleDelegate
     {
         Modules LoadModules();
     }

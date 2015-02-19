@@ -9,6 +9,11 @@ namespace ModuleModule.Infrastructure
 {
     public class ModuleServices : IModuleServices
     {
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
         public Module LoadModule()
         {
             return null;

@@ -10,6 +10,11 @@ namespace Holoware.TestAPI
 {
     public class MockModuleServices : IModuleServices
     {
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
         public Module LoadModule()
         {
             return new Module()

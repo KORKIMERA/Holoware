@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="_Bootstrap.cs" />
     <Compile Include="_WorkflowOrchestrator.cs" />
     <Compile Include="_Class.cs" />
     <Compile Include="_Architecture.cs" />
@@ -61,6 +62,10 @@
     <ProjectReference Include="..\ArchitectureModule\ArchitectureModule.csproj">
       <Project>{8542eeb9-ee3d-49da-8185-e2ea2a9fede8}</Project>
       <Name>ArchitectureModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClassModule\ClassModule.csproj">
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
@@ -78,9 +83,17 @@
       <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
       <Name>ModulesModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NotificationModule\NotificationModule.csproj">
+      <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
+      <Name>NotificationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OrchestrationModule\WorkflowOrchestrationModule.csproj">
       <Project>{08701edc-0a55-4ef0-9e15-d373c54667eb}</Project>
       <Name>WorkflowOrchestrationModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -33,5 +33,10 @@ namespace Holoware.TestAPI
         {
             throw new NotImplementedException();
         }
+
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

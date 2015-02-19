@@ -53,7 +53,12 @@
       <DependentUpon>Module.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="UI\Views\Module.xaml">
       <Generator>MSBuild:Compile</Generator>

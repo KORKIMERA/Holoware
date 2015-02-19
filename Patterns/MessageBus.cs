@@ -82,7 +82,7 @@ namespace Bizmonger.Patterns
             return observers.Count;
         }
 
-        public void Publish(string message, object payload)
+        public void Publish(string message, object payload = null)
         {
             _publishingCount++;
 

@@ -11,7 +11,7 @@ namespace OrchestrationModule
     {
         public void Initialize()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Execute(IWorkflowState state)
