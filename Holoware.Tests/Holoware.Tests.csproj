@@ -71,7 +71,7 @@
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HoloCoder.TestAPI\Holoware.TestAPI.csproj">
+    <ProjectReference Include="..\Holoware.TestAPI\Holoware.TestAPI.csproj">
       <Project>{e8eb2fc9-5d3b-49ce-94f5-617dafb36de2}</Project>
       <Name>Holoware.TestAPI</Name>
     </ProjectReference>
