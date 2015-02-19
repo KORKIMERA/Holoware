@@ -7,8 +7,8 @@
     <ProjectGuid>{DF44D9A3-98D1-4FAA-9005-2BD160E50FB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UIModule</RootNamespace>
-    <AssemblyName>UIModule</AssemblyName>
+    <RootNamespace>UXModule</RootNamespace>
+    <AssemblyName>UXModule</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleModule", "ModuleModul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassModule", "ClassModule\ClassModule.csproj", "{B50488E8-212B-4774-BB96-F40013933915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloCoder.Tests", "HoloCoder.Tests\HoloCoder.Tests.csproj", "{5219DBCC-CAB5-4F60-B18A-7A8854BFB838}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holoware.Tests", "HoloCoder.Tests\Holoware.Tests.csproj", "{5219DBCC-CAB5-4F60-B18A-7A8854BFB838}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{08225140-808A-40D3-B42A-EB5B0DB1B607}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloCoder.TestAPI", "HoloCoder.TestAPI\HoloCoder.TestAPI.csproj", "{E8EB2FC9-5D3B-49CE-94F5-617DAFB36DE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holoware.TestAPI", "HoloCoder.TestAPI\Holoware.TestAPI.csproj", "{E8EB2FC9-5D3B-49CE-94F5-617DAFB36DE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A8DC7B17-6E99-4287-9937-1B1EC8544208}"
 EndProject
@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowOrchestrationModule", "OrchestrationModule\WorkflowOrchestrationModule.csproj", "{08701EDC-0A55-4EF0-9E15-D373C54667EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIModule", "UIModule\UIModule.csproj", "{DF44D9A3-98D1-4FAA-9005-2BD160E50FB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UXModule", "UIModule\UXModule.csproj", "{DF44D9A3-98D1-4FAA-9005-2BD160E50FB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryModule", "RepositoryModule\RepositoryModule.csproj", "{4B986E6A-1478-4587-BCB1-991BCCB22019}"
 EndProject

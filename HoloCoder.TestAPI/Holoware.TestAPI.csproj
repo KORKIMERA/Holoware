@@ -6,8 +6,8 @@
     <ProjectGuid>{E8EB2FC9-5D3B-49CE-94F5-617DAFB36DE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HoloCoder.TestAPI</RootNamespace>
-    <AssemblyName>HoloCoder.TestAPI</AssemblyName>
+    <RootNamespace>Holoware.TestAPI</RootNamespace>
+    <AssemblyName>Holoware.TestAPI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

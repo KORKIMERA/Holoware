@@ -6,8 +6,8 @@
     <ProjectGuid>{5219DBCC-CAB5-4F60-B18A-7A8854BFB838}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HoloCoder.Tests</RootNamespace>
-    <AssemblyName>HoloCoder.Tests</AssemblyName>
+    <RootNamespace>Holoware.Tests</RootNamespace>
+    <AssemblyName>Holoware.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -71,9 +71,9 @@
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HoloCoder.TestAPI\HoloCoder.TestAPI.csproj">
+    <ProjectReference Include="..\HoloCoder.TestAPI\Holoware.TestAPI.csproj">
       <Project>{e8eb2fc9-5d3b-49ce-94f5-617dafb36de2}</Project>
-      <Name>HoloCoder.TestAPI</Name>
+      <Name>Holoware.TestAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
       <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
