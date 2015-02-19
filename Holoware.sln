@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowModules", "Workflow
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SystemModules", "SystemModules", "{9C35BCE9-9A31-4E0A-9AC7-AD72C0DF2A87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationModule", "NotificationModule\NotificationModule.csproj", "{07A964AC-BDCF-42A8-B12C-C91D4FF29BA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageModule", "NotificationModule\MessageModule.csproj", "{07A964AC-BDCF-42A8-B12C-C91D4FF29BA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{CDB72F61-06FA-4FF5-BFEB-533D18663278}"
 EndProject

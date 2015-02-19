@@ -115,9 +115,9 @@
       <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
       <Name>ModulesModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NotificationModule\NotificationModule.csproj">
+    <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
-      <Name>NotificationModule</Name>
+      <Name>MessageModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\OrchestrationModule\WorkflowOrchestrationModule.csproj">
       <Project>{08701edc-0a55-4ef0-9e15-d373c54667eb}</Project>

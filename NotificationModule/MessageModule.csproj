@@ -7,8 +7,8 @@
     <ProjectGuid>{07A964AC-BDCF-42A8-B12C-C91D4FF29BA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NotificationModule</RootNamespace>
-    <AssemblyName>NotificationModule</AssemblyName>
+    <RootNamespace>MessageModule</RootNamespace>
+    <AssemblyName>MessageModule</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
