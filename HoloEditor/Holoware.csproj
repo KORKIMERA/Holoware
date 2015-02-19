@@ -7,8 +7,8 @@
     <ProjectGuid>{CED68376-B2AF-4DFF-B83D-F082D4D1CECC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HoloCoder</RootNamespace>
-    <AssemblyName>HoloCoder</AssemblyName>
+    <RootNamespace>Holoware</RootNamespace>
+    <AssemblyName>Holoware</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -61,6 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ModuleLoader.cs" />
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -94,13 +95,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ArchitectureModule\ArchitectureModule.csproj">
+      <Project>{8542eeb9-ee3d-49da-8185-e2ea2a9fede8}</Project>
+      <Name>ArchitectureModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassModule\ClassModule.csproj">
+      <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
+      <Name>ClassModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
+      <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
+      <Name>ModuleModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
+      <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
+      <Name>ModulesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NotificationModule\NotificationModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
       <Name>NotificationModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrchestrationModule\WorkflowOrchestrationModule.csproj">
+      <Project>{08701edc-0a55-4ef0-9e15-d373c54667eb}</Project>
+      <Name>WorkflowOrchestrationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
       <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
       <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryModule\RepositoryModule.csproj">
+      <Project>{4b986e6a-1478-4587-bcb1-991bccb22019}</Project>
+      <Name>RepositoryModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIModule\UXModule.csproj">
+      <Project>{df44d9a3-98d1-4faa-9005-2bd160e50fb3}</Project>
+      <Name>UXModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

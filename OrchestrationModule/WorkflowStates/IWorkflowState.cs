@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrchestrationModule.ApplicationStates
 {
-    public interface IWorkflowState : IModuleDelegate
+    public interface IWorkflowState : IModule
     {
         void Execute();
     }

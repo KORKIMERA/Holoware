@@ -11,16 +11,6 @@ namespace ArchitectureModule.Infrastructure
 {
     public class ArchitectureServices : IArchitectureServices
     {
-        Subscription _subscription = new Subscription();
-
-        public ArchitectureServices()
-        {
-            _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, (obj) =>
-                {
-                    ViewLocator.Instance.Load(typeof(CreateArchitectureView));
-                });
-        }
-
         public void AddModule(Module module)
         {
             throw new NotImplementedException();

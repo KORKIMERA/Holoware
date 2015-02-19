@@ -13,9 +13,8 @@ namespace HoloCoder.Tests
         [TestMethod]
         public void bootstrap()
         {
-            var architectureServices = new ArchitectureServices();
-            var startWorkflow = new StartWorkflowState();
-            MessageBus.Instance.Publish(KernelMessage.REQUEST_BOOTSTRAP);
+            ModuleLoader.LoadModules();
+            MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
         }
     }
 }

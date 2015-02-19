@@ -3,7 +3,7 @@ using ModulesModule.Entities;
 
 namespace ModulesModule.Infrastructure
 {
-    public interface IModulesServices : IModuleDelegate
+    public interface IModulesServices : IModule
     {
         Modules LoadModules();
     }

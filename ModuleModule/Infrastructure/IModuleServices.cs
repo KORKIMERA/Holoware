@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ModuleModule.Infrastructure
 {
-    public interface IModuleServices : IModuleDelegate
+    public interface IModuleServices : IModule
     {
         Module LoadModule();
     }

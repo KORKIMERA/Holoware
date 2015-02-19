@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\WorkflowOrchestrationModule.cs" />
     <Compile Include="WorkflowStates\IWorkflowState.cs" />
     <Compile Include="WorkflowStates\OnExitState .cs" />
     <Compile Include="WorkflowStates\OnStarupState.cs" />

@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messaging\KernelMessage.cs" />
+    <Compile Include="Messaging\SystemMessage.cs" />
     <Compile Include="Messaging\UXMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

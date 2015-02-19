@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ArchitectureModule.Infrastructure
 {
-    public interface IArchitectureServices : IModuleDelegate
+    public interface IArchitectureServices : IModule
     {
         Architecture LoadArchitecture();
         IEnumerable<Module> LoadModuleOptions();

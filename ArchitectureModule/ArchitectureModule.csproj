@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Architecture.cs" />
+    <Compile Include="Infrastructure\ArchitectureModule.cs" />
     <Compile Include="Infrastructure\ArchitectureServices.cs" />
     <Compile Include="Infrastructure\Dependencies.cs" />
     <Compile Include="Infrastructure\IArchitectureServices.cs" />

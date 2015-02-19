@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NotificationModule.Messaging
 {
-    public class KernelMessage
+    public class SystemMessage
     {
         public const string REQUEST_BOOTSTRAP = "REQUEST_BOOTSTRAP";
     }

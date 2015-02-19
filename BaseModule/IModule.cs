@@ -1,6 +1,6 @@
 ﻿namespace BaseModule
 {
-    public interface IModuleDelegate
+    public interface IModule
     {
         void Initialize();
     }
