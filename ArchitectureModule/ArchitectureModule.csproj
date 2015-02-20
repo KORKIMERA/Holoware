@@ -55,8 +55,8 @@
     <Compile Include="UI\Views\Architecture.xaml.cs">
       <DependentUpon>Architecture.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Views\CreateArchitecturePage.xaml.cs">
-      <DependentUpon>CreateArchitecturePage.xaml</DependentUpon>
+    <Compile Include="UI\Views\ConfigureArchitectureView.xaml.cs">
+      <DependentUpon>ConfigureArchitectureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Views\LoadArchitectureView.xaml.cs">
       <DependentUpon>LoadArchitectureView.xaml</DependentUpon>
@@ -101,7 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Views\CreateArchitecturePage.xaml">
+    <Page Include="UI\Views\ConfigureArchitectureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

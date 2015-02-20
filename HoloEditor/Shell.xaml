@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True"
-        Title="MainWindow" WindowState="Maximized" >
+        Title="MainWindow" WindowState="Maximized" Background="#01000000">
     
     <!--Background="#01000000"-->
     
-    <ContentControl x:Name="FrontRegion" />
+    <ContentControl x:Name="FrontRegion" Height="400" />
     
     <!--<Grid x:Name="MyGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin=".5,.5">
         <Grid.RowDefinitions>
