@@ -18,9 +18,9 @@ namespace ArchitectureModule.UI.Views
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class CreateArchitectureView : UserControl
+    public partial class ConfigureArchitectureView : UserControl
     {
-        public CreateArchitectureView()
+        public ConfigureArchitectureView()
         {
             InitializeComponent();
         }

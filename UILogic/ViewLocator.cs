@@ -50,7 +50,7 @@ namespace Bizmonger.UILogic
             return _dictionary.ContainsKey(viewType);
         }
 
-        public void Load(Type viewType)
+        public void Register(Type viewType)
         {
             if (viewType == null) { return; }
 

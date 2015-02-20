@@ -18,9 +18,9 @@ namespace ArchitectureModule.UI.Views
     /// <summary>
     /// Interaction logic for Architecture.xaml
     /// </summary>
-    public partial class Architecture : UserControl
+    public partial class ArchitectureView : UserControl
     {
-        public Architecture()
+        public ArchitectureView()
         {
             InitializeComponent();
         }

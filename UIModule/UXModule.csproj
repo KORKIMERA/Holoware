@@ -43,11 +43,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs" />
     <Compile Include="RegionId.cs" />
+    <Compile Include="Regions.cs" />
     <Compile Include="UXServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
+      <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
+      <Name>MessageModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
       <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
       <Name>Bizmonger.UILogic</Name>

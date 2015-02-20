@@ -1,6 +1,6 @@
-﻿using System;
-using Bizmonger.Patterns;
-using NotificationModule.Messaging;
+﻿using Bizmonger.Patterns;
+using MessageModule.Messaging;
+using System;
 
 namespace OrchestrationModule.ApplicationStates
 {

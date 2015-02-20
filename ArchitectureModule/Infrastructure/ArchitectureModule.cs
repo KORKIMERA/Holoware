@@ -1,13 +1,9 @@
 ﻿using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
-using Bizmonger.UILogic;
-using NotificationModule.Messaging;
+using MessageModule.Messaging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UIModule;
 
 namespace ArchitectureModule.Infrastructure
 {
@@ -17,9 +13,13 @@ namespace ArchitectureModule.Infrastructure
 
         public ArchitectureModule()
         {
+            UXServices.Instance.Register(typeof(ArchitectureView));
+            UXServices.Instance.Register(typeof(ConfigureArchitectureView));
+            UXServices.Instance.Register(typeof(LoadArchitectureView));
+
             _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, (obj) =>
                 {
-                    ViewLocator.Instance.Load(typeof(CreateArchitectureView));
+                    UXServices.Instance.LoadView(typeof(ConfigureArchitectureView), RegionId.MAIN);
                 });
         }
 

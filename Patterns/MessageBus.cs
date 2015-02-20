@@ -101,11 +101,7 @@ namespace Bizmonger.Patterns
             Debug.Assert(_publishingCount >= 0);
 
             var subscribers = observers.Where(o => o.Subscription.ToLower() == message.ToLower());
-
-            foreach (var subscriber in subscribers)
-            {
-                subscriber.Respond(payload);
-            }
+            subscribers.ToList().ForEach(s => s.Respond(payload));
         }
 
         public IEnumerable<Observer> GetObservers(string subscription)

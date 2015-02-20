@@ -22,7 +22,7 @@ namespace ArchitectureModule.UI.Views
 
             this.PreviewKeyUp += new KeyEventHandler(On_PreviewKeyUp);
 
-            _elements.Add(new ArchitectureModule.UI.Views.Architecture());
+            _elements.Add(new ArchitectureModule.UI.Views.ArchitectureView());
             _elements.Add(new ModulesModule.UI.Views.Modules());
             _elements.Add(new ModuleModule.UI.Views.Module());
             _elements.Add(new ClassModule.UI.Views.Editor());
