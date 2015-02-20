@@ -1,12 +1,9 @@
-﻿using ModuleModule.Entities;
+﻿using System.Collections.Generic;
 
 namespace ArchitectureModule.Entities
 {
     public class Architecture
     {
-        public Module Repository { get; set; }
-        public Module Model { get; set; }
-        public Module Services { get; set; }
-        public Module UserInterface { get; set; }
+        public IEnumerable<Layer> Layers { get; set; }
     }
 }

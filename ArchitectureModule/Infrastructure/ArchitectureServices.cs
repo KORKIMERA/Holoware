@@ -11,7 +11,7 @@ namespace ArchitectureModule.Infrastructure
 {
     public class ArchitectureServices : IArchitectureServices
     {
-        public void AddModule(Module module)
+        public void AddLayer(Layer layer)
         {
             throw new NotImplementedException();
         }
@@ -26,12 +26,12 @@ namespace ArchitectureModule.Infrastructure
             return null;
         }
 
-        public IEnumerable<Module> LoadModuleOptions()
+        public IEnumerable<Layer> LoadLayers()
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveModule(Module module)
+        public void RemoveLayer(Layer layer)
         {
             throw new NotImplementedException();
         }

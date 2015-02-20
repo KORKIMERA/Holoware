@@ -10,6 +10,8 @@ namespace ArchitectureModule.UI.Views
         public ConfigureArchitectureView()
         {
             InitializeComponent();
+
+            this.Loaded += (s, e) => { PrepareButton.Focus(); };
         }
     }
 }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Architecture.cs" />
+    <Compile Include="Entities\Layer.cs" />
     <Compile Include="Infrastructure\ArchitectureModule.cs" />
     <Compile Include="Infrastructure\ArchitectureServices.cs" />
     <Compile Include="Infrastructure\Dependencies.cs" />
@@ -51,7 +52,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ViewModels\LoadArchitectureViewModel.cs" />
-    <Compile Include="UI\ViewModels\CreateArchitectureViewModel.cs" />
+    <Compile Include="UI\ViewModels\ConfigureArchitectureViewModel.cs" />
     <Compile Include="UI\Views\Architecture.xaml.cs">
       <DependentUpon>Architecture.xaml</DependentUpon>
     </Compile>

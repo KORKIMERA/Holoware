@@ -8,8 +8,8 @@ namespace ArchitectureModule.Infrastructure
     public interface IArchitectureServices : IModule
     {
         Architecture LoadArchitecture();
-        IEnumerable<Module> LoadModuleOptions();
-        void AddModule(Module module);
-        void RemoveModule(Module module);
+        IEnumerable<Layer> LoadLayers();
+        void AddLayer(Layer layer);
+        void RemoveLayer(Layer layer);
     }
 }
