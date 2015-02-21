@@ -6,7 +6,8 @@ using MessageModule;
 using ModuleModule.Entities;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ArchitectureModule.ViewModels
 {
@@ -19,21 +20,52 @@ namespace ArchitectureModule.ViewModels
 
         public ConfigureArchitectureViewModel()
         {
-            PrepareLayerCommand = new DelegateCommand((obj) => { PrepareLayer(); });
-            ExecuteCommand = new DelegateCommand((obj) => { Execute(Command); });
-        }
+            PrepareLayerCommand = new DelegateCommand((obj) => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
+            ExecuteCommand = new DelegateCommand((obj) =>
+                {
+                    ConsoleLine.Success = Execute(ConsoleLine);
+                });
 
-        public void Initialize()
-        {
             _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
                 {
                     var dependencies = obj as ArchitectureDependencies;
-                    var services = dependencies.Services;
+                    _services = dependencies.Services;
                 });
+
+            ConsoleLine = new ConsoleLine();
+            ConsoleLines.Add(ConsoleLine);
         }
 
         #region Properties
-        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
+        ObservableCollection<ConsoleLine> _consoleLines = new ObservableCollection<ConsoleLine>();
+        public ObservableCollection<ConsoleLine> ConsoleLines
+        {
+            get { return _consoleLines; }
+            set
+            {
+                if (_consoleLines != value)
+                {
+                    _consoleLines = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        ConsoleLine _consoleLine = null;
+        public ConsoleLine ConsoleLine
+        {
+            get { return _consoleLine; }
+            set
+            {
+                if (_consoleLine != value)
+                {
+                    _consoleLine = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
         public ObservableCollection<Layer> Layers
         {
             get { return _layers; }
@@ -60,34 +92,6 @@ namespace ArchitectureModule.ViewModels
                 }
             }
         }
-
-        ObservableCollection<string> _commands = new ObservableCollection<string>();
-        public ObservableCollection<string> Commands
-        {
-            get { return _commands; }
-            set
-            {
-                if (_commands != value)
-                {
-                    _commands = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        string _command = null;
-        public string Command
-        {
-            get { return _command; }
-            set
-            {
-                if (_command != value)
-                {
-                    _command = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
         #endregion
 
         #region Commands
@@ -100,13 +104,10 @@ namespace ArchitectureModule.ViewModels
             return _services.LoadLayers();
         }
 
-        public void PrepareLayer()
+        public void PrepareLayer(string commandText)
         {
-            Command = string.Format("AddLayer {0}", "value?");
-            Commands.Add(Command);
-
-            SelectedLayer = new Layer() { Id = null, Modules = new ObservableCollection<Module>() };
-            Layers.Add(SelectedLayer);
+            var consoleLine = new ConsoleLine() { Content = commandText };
+            ConsoleLines[ConsoleLines.Count - 1] = consoleLine;
         }
 
         public void RemoveLayer(Layer layer)
@@ -116,10 +117,42 @@ namespace ArchitectureModule.ViewModels
 
         #region Helpers
 
-        private void Execute(string command)
+        private bool Execute(ConsoleLine line)
         {
+            if (line?.Content == null)
+            {
+                return false;
+            }
+
+            var tokens = line.Content.Split(' ');
+            SelectedLayer = new Layer() { Id = tokens.Last(), Modules = new ObservableCollection<Module>() };
+            Layers.Add(SelectedLayer);
             _services.AddLayer(SelectedLayer);
+
+            ConsoleLine = new ConsoleLine();
+            ConsoleLines.Add(ConsoleLine);
+            return true;
         }
         #endregion
+    }
+
+    public class ConsoleLine : ViewModelBase
+    {
+        public string Content { get; set; }
+
+        bool _success = false;
+        public bool Success
+        {
+            get { return _success; }
+
+            set
+            {
+                if (_success != value)
+                {
+                    _success = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
     }
 }

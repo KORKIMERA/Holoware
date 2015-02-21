@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:ArchitectureModule.UI.Views"
              xmlns:viewModels="clr-namespace:ArchitectureModule.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600" Margin="20">
+             d:DesignHeight="300" d:DesignWidth="600" Margin="20" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
 
     <UserControl.DataContext>
         <viewModels:ConfigureArchitectureViewModel />
@@ -15,10 +15,54 @@
 
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding PrepareLayerCommand}" Key="A" Modifiers="Shift" />
-        <KeyBinding Command="{Binding ExecuteCommand}" Key="Enter" />
+        <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
     </UserControl.InputBindings>
 
     <UserControl.Resources>
+
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#00000000"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#00000000"/>
+
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border SnapsToDevicePixels="True" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Columns="{TemplateBinding GridView.ColumnCollection}" Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Storyboard x:Key="Storyboard1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Cyan"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.33" Value="LightGreen"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="LightGray"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="50" />
             <Setter Property="FontSize" Value="16" />
@@ -26,14 +70,9 @@
             <Setter Property="Padding" Value="10" />
             <Setter Property="Opacity" Value=".33" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Background" >
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="#FFD0D6D8" Offset="1"/>
-                        <GradientStop Color="#FFD8DBDC"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
 
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
@@ -53,49 +92,77 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="TextBoxCommandStyle" TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="Cyan"/>
+            <Setter Property="FontSize" Value="20" />
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Success}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <Grid Margin="5" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition  />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Button x:Name="PrepareButton" Grid.Row="0" Grid.Column="0" Style="{StaticResource ButtonStyle}" 
                 Content="AddLayer     Shift+A" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
 
-        <TextBox x:Name="CommandPane" Grid.Row="1" Background="Black" Foreground="LightGray" Text="{Binding Command, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        
-        <Border Grid.Row="0" Grid.Column="1" Height="400" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="1" Margin="15">
-            <ListView ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedLayer.Id}">
-                            <TextBox.InputBindings>
-                                <KeyBinding Key="Enter" Command="{Binding ElementName=UserControl, Path=DataContext.SubmitLayerCommand}" />
-                            </TextBox.InputBindings>
-                        </TextBox>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Border>
-
-        <ListView Grid.Row="0" Grid.Column="2" 
-                  ItemsSource="{Binding SelectedLayer.Modules}" 
-                  Background="Black" Foreground="White" Margin="20">
-
+        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ConsoleLines}" ClipToBounds="True" SelectedItem="{Binding ConsoleLine}"
+                  Background="Black" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Focusable="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Id}" />
+                    <TextBox Style="{StaticResource TextBoxCommandStyle}" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
+                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded"
+                             BorderThickness="0" />
                 </DataTemplate>
             </ListView.ItemTemplate>
 
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected"
+    					 Value="True">
+                            <Setter Property="Background"
+    						Value="{x:Null}" />
+                            <Setter Property="BorderBrush"
+    						Value="{x:Null}" />
+
+                            <Setter Property="Focusable" Value="False" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        
+        <ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
+                  ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent" BorderThickness="0" 
+                  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Id}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

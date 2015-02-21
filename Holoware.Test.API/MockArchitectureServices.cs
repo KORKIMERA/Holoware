@@ -8,9 +8,13 @@ namespace Holoware.TestAPI
 {
     public class MockArchitectureServices : IArchitectureServices
     {
+        #region Members
+        List<Layer> _layers = new List<Layer>();
+        #endregion
+
         public void AddLayer(Layer layer)
         {
-            throw new NotImplementedException();
+            _layers.Add(layer);
         }
 
         public void Initialize()

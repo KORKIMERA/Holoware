@@ -8,7 +8,7 @@
     
     <!--Background="#01000000"-->
     
-    <ContentControl x:Name="FrontRegion" Height="400" VerticalAlignment="Top" />
+    <ContentControl x:Name="FrontRegion" VerticalAlignment="Top" VerticalContentAlignment="Stretch" ClipToBounds="True" />
     
     <!--<Grid x:Name="MyGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin=".5,.5">
         <Grid.RowDefinitions>
