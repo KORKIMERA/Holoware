@@ -13,7 +13,7 @@ namespace Holoware.Tests
         {
             // Setup
             var viewModel = new LoadArchitectureViewModel();
-            var dependencies = new ArchiectureDependencies() { Services = new MockArchitectureServices() };
+            var dependencies = new ArchitectureDependencies() { Services = new MockArchitectureServices() };
             viewModel.Initialize(dependencies);
 
             // Test

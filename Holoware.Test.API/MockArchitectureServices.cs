@@ -8,15 +8,24 @@ namespace Holoware.TestAPI
 {
     public class MockArchitectureServices : IArchitectureServices
     {
+        public void AddLayer(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
         public Architecture LoadArchitecture()
         {
-            return new Architecture()
-            {
-                 UserInterface = new Module(),
-                 Services = new Module(),
-                 Model = new Module(),
-                 Repository = new Module()
-            };
+            return new Architecture();
+        }
+
+        public IEnumerable<Layer> LoadLayers()
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Module> LoadModuleOptions()
@@ -24,17 +33,7 @@ namespace Holoware.TestAPI
             throw new NotImplementedException();
         }
 
-        public void AddModule(Module module)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveModule(Module module)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Initialize()
+        public void RemoveLayer(Layer layer)
         {
             throw new NotImplementedException();
         }

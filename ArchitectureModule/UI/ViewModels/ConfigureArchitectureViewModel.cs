@@ -2,19 +2,17 @@
 using ArchitectureModule.Infrastructure;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
+using MessageModule;
 using ModuleModule.Entities;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArchitectureModule.ViewModels
 {
     public class ConfigureArchitectureViewModel : ViewModelBase
     {
         #region Members
+        Subscription _subscription = new Subscription();
         IArchitectureServices _services = null;
         #endregion
 
@@ -24,6 +22,16 @@ namespace ArchitectureModule.ViewModels
             SubmitLayerCommand = new DelegateCommand((obj) => { _services.AddLayer(SelectedLayer); });
         }
 
+        public void Initialize()
+        {
+            _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
+                {
+                    var dependencies = obj as ArchitectureDependencies;
+                    var services = dependencies.Services;
+                });
+        }
+
+        #region Properties
         ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
         public ObservableCollection<Layer> Layers
         {
@@ -51,6 +59,7 @@ namespace ArchitectureModule.ViewModels
                 }
             }
         }
+        #endregion
 
         #region Commands
         public DelegateCommand PrepareLayerCommand { get; private set; }
@@ -64,7 +73,7 @@ namespace ArchitectureModule.ViewModels
 
         public void PrepareLayer()
         {
-            SelectedLayer = new Layer() { Id = "1", Modules = new ObservableCollection<Module>() };
+            SelectedLayer = new Layer() { Id = null, Modules = new ObservableCollection<Module>() };
             Layers.Add(SelectedLayer);
         }
 

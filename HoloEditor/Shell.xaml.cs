@@ -1,7 +1,7 @@
 ﻿using Bizmonger.Patterns;
 using HoloCoder;
+using MessageModule;
 using MessageModule.Messaging;
-using NotificationModule.Messaging;
 using System.Windows;
 using System.Windows.Controls;
 using UXModule;

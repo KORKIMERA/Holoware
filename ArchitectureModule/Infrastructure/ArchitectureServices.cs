@@ -1,11 +1,6 @@
-﻿using System;
+﻿using ArchitectureModule.Entities;
+using System;
 using System.Collections.Generic;
-using ArchitectureModule.Entities;
-using ModuleModule.Entities;
-using Bizmonger.Patterns;
-using NotificationModule.Messaging;
-using Bizmonger.UILogic;
-using ArchitectureModule.UI.Views;
 
 namespace ArchitectureModule.Infrastructure
 {

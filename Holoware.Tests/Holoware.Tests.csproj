@@ -100,6 +100,11 @@
       <Name>Bizmonger.Patterns</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\HoloEditor\App.config">
+      <Link>App.config</Link>
+    </None>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

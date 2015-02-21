@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Bizmonger.Patterns;
+using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bizmonger.Patterns;
-using NotificationModule.Messaging;
-using OrchestrationModule.ApplicationStates;
-using ArchitectureModule.Infrastructure;
 
 namespace HoloCoder.Tests
 {

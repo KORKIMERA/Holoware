@@ -73,7 +73,7 @@
                 <ListView ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                        <TextBox Style="{StaticResource TextBoxStyle}">
+                        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedLayer.Id}">
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding ElementName=UserControl, Path=DataContext.SubmitLayerCommand}" />
                             </TextBox.InputBindings>

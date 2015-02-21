@@ -9,7 +9,7 @@ namespace ArchitectureModule.ViewModels
         IArchitectureServices _services = null;
         #endregion
 
-        public void Initialize(ArchiectureDependencies dependencies)
+        public void Initialize(ArchitectureDependencies dependencies)
         {
             _services = dependencies.Services;
         }
