@@ -7,24 +7,25 @@
              xmlns:local="clr-namespace:ArchitectureModule.UI.Views"
              xmlns:viewModels="clr-namespace:ArchitectureModule.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             d:DesignHeight="300" d:DesignWidth="600" Margin="20">
 
     <UserControl.DataContext>
         <viewModels:ConfigureArchitectureViewModel />
     </UserControl.DataContext>
 
     <UserControl.InputBindings>
-        <KeyBinding Command="{Binding PrepareLayerCommand}"
-                  Gesture="CTRL+Shift+A" />
+        <KeyBinding Command="{Binding PrepareLayerCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ExecuteCommand}" Key="Enter" />
     </UserControl.InputBindings>
 
     <UserControl.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="50" />
-            <Setter Property="Width" Value="300" />
-            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="Opacity" Value=".33" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Background" >
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -56,43 +57,45 @@
 
     <Grid Margin="5" >
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition  />
         </Grid.ColumnDefinitions>
 
-        
-            <Button x:Name="PrepareButton" Grid.Row="0" Grid.Column="0" Style="{StaticResource ButtonStyle}" 
-                    Content="Add     Ctrl+Shift+A" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
+        <Button x:Name="PrepareButton" Grid.Row="0" Grid.Column="0" Style="{StaticResource ButtonStyle}" 
+                Content="AddLayer     Shift+A" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
 
-            <Border Grid.Row="0" Grid.Column="1" Height="400" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="1" Margin="15">
-                <ListView ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
+        <TextBox x:Name="CommandPane" Grid.Row="1" Background="Black" Foreground="LightGray" Text="{Binding Command, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <Border Grid.Row="0" Grid.Column="1" Height="400" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="1" Margin="15">
+            <ListView ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
                         <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedLayer.Id}">
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding ElementName=UserControl, Path=DataContext.SubmitLayerCommand}" />
                             </TextBox.InputBindings>
                         </TextBox>
                     </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Border>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
 
         <ListView Grid.Row="0" Grid.Column="2" 
                   ItemsSource="{Binding SelectedLayer.Modules}" 
                   Background="Black" Foreground="White" Margin="20">
-            
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Id}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
         </ListView>
     </Grid>
 </UserControl>
