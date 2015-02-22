@@ -1,7 +1,13 @@
 ﻿using ArchitectureModule.Infrastructure;
+using ArchitectureModule.UI.Views;
 using ArchitectureModule.ViewModels;
+using Bizmonger.Patterns;
+using Bizmonger.UILogic;
+using HoloCoder;
 using Holoware.TestAPI;
+using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Holoware.Tests
 {
@@ -21,6 +27,28 @@ namespace Holoware.Tests
 
             // Verify
             Assert.IsTrue(architecture != null);
+        }
+
+        [TestMethod]
+        public void add_layer()
+        {
+            // Setup
+            ModuleLoader.LoadModules();
+            MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
+
+            var view = ViewLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
+            var viewModel = view.DataContext as ConfigureArchitectureViewModel;
+
+            viewModel.ConsoleLine.Content = "AddLayer UX";
+
+            // Test
+            viewModel.ExecuteCommand.Execute(null);
+
+            // Verify
+            var expectedCount = viewModel.ConsoleLines.Count() == 2;
+            var expectedStatus = viewModel.ConsoleLines.First().Status == CommandStatus.Succeeded;
+
+            Assert.IsTrue(expectedCount && expectedStatus);
         }
     }
 }

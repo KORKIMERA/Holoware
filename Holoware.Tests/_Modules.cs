@@ -1,4 +1,5 @@
-﻿using Holoware.TestAPI;
+﻿using Bizmonger.UILogic;
+using Holoware.TestAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModulesModule.Infrastructure;
 using ModulesModule.ViewModels;
@@ -8,6 +9,14 @@ namespace Holoware.Tests
     [TestClass]
     public class _Modules
     {
+        #region Testware
+        [TestCleanup]
+        public void Cleanup()
+        {
+            ViewLocator.Instance.Clear();
+        }
+        #endregion
+
         [TestMethod]
         public void load_modules()
         {

@@ -68,6 +68,11 @@ namespace Bizmonger.UILogic
             _dictionary.Add(type, view);
         }
 
+        public void Clear()
+        {
+            _dictionary.Clear();
+        }
+
         #region Helpers
         private void RemoveExisting(object data)
         {

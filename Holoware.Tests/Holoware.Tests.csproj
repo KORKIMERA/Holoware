@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
       <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
       <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
+      <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
+      <Name>Bizmonger.UILogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

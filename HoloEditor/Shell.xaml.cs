@@ -24,7 +24,6 @@ namespace Holoware
             _subscription.Subscribe(UXMessage.ASSIGN_MAIN_REGION, obj => { FrontRegion.Content = obj as ContentControl; });
 
             ModuleLoader.LoadModules();
-
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
         }
     }

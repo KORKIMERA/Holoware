@@ -111,13 +111,14 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
-                Content="AddLayer     ( Shift+A )" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
+                    Content="AddLayer     ( Shift+A )" 
+                    Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
 
             <Button x:Name="UndoButton" Style="{StaticResource ButtonStyle}" Visibility="Collapsed"
-                Content="Undo     Ctrl+Z" Command="{Binding UndoCommand}" VerticalAlignment="Top" />
+                Content="Undo     Ctrl+Z" Command="{Binding UndoCommand}" />
 
             <Button x:Name="RedoButton" Style="{StaticResource ButtonStyle}" Visibility="Collapsed"
-                Content="Redo     Ctrl+Y" Command="{Binding UndoCommand}" VerticalAlignment="Top" />
+                Content="Redo     Ctrl+Y" Command="{Binding UndoCommand}" />
 
         </StackPanel>
 

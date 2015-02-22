@@ -21,14 +21,14 @@ namespace ArchitectureModule.ViewModels
 
         public ConfigureArchitectureViewModel()
         {
-            PrepareLayerCommand = new DelegateCommand((obj) => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
-            ExecuteCommand = new DelegateCommand((obj) =>
+            PrepareLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
+            ExecuteCommand = new DelegateCommand(obj =>
                 {
                     ConsoleLine = ConsoleLines.Last();
                     ConsoleLine.Status = Execute(ConsoleLines.Last());
                 });
 
-            UndoCommand = new DelegateCommand((obj) =>
+            UndoCommand = new DelegateCommand(obj =>
                 {
                     Undo();
                 });
