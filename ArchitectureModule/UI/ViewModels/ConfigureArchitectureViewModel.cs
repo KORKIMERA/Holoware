@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System;
 
 namespace ArchitectureModule.ViewModels
 {
@@ -21,9 +22,10 @@ namespace ArchitectureModule.ViewModels
         public ConfigureArchitectureViewModel()
         {
             PrepareLayerCommand = new DelegateCommand((obj) => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
-            ExecuteCommand = new DelegateCommand((obj) =>
+            ExecuteCommand = new DelegateCommand((obj) => { ConsoleLine.Status = Execute(ConsoleLine); });
+            UndoCommand = new DelegateCommand((obj) => 
                 {
-                    ConsoleLine.Success = Execute(ConsoleLine);
+                    Undo();
                 });
 
             _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
@@ -65,7 +67,7 @@ namespace ArchitectureModule.ViewModels
             }
         }
 
-ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
+        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
         public ObservableCollection<Layer> Layers
         {
             get { return _layers; }
@@ -97,6 +99,8 @@ ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
         #region Commands
         public DelegateCommand PrepareLayerCommand { get; private set; }
         public DelegateCommand ExecuteCommand { get; private set; }
+
+        public DelegateCommand UndoCommand { get; private set; }
         #endregion
 
         public IEnumerable<Layer> LoadLayers()
@@ -117,21 +121,66 @@ ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
 
         #region Helpers
 
-        private bool Execute(ConsoleLine line)
+        private CommandStatus Execute(ConsoleLine line)
         {
             if (line?.Content == null)
             {
-                return false;
+                return CommandStatus.Failed;
             }
 
             var tokens = line.Content.Split(' ');
+
+            if (!(tokens.Count() > 1))
+            {
+                return CommandStatus.Failed;
+            }
+
+            var isValidIstruction = ValidateInstruction(tokens[0]);
+
+            if (!isValidIstruction)
+            {
+                return CommandStatus.Failed;
+            }
+
+            var isValidParameter = ValidatePaameter(tokens[1]);
+
+            if (!isValidParameter)
+            {
+                return CommandStatus.Failed;
+            }
+
             SelectedLayer = new Layer() { Id = tokens.Last(), Modules = new ObservableCollection<Module>() };
             Layers.Add(SelectedLayer);
             _services.AddLayer(SelectedLayer);
 
             ConsoleLine = new ConsoleLine();
             ConsoleLines.Add(ConsoleLine);
-            return true;
+            return CommandStatus.Succeeded;
+        }
+
+        private void Undo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool ValidatePaameter(string v)
+        {
+            if (!string.IsNullOrWhiteSpace(v))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ValidateInstruction(string text)
+        {
+            if (text.ToLower() == "addlayer" || text.ToLower() == "al")
+            {
+                return true;
+            }
+
+            return false;
         }
         #endregion
     }
@@ -140,19 +189,26 @@ ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
     {
         public string Content { get; set; }
 
-        bool _success = false;
-        public bool Success
+        CommandStatus _status = CommandStatus.None;
+        public CommandStatus Status
         {
-            get { return _success; }
+            get { return _status; }
 
             set
             {
-                if (_success != value)
+                if (_status != value)
                 {
-                    _success = value;
+                    _status = value;
                     OnPropertyChanged();
                 }
             }
         }
+    }
+
+    public enum CommandStatus
+    {
+        None = 0,
+        Failed,
+        Succeeded
     }
 }

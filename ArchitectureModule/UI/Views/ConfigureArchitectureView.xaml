@@ -15,6 +15,7 @@
 
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding PrepareLayerCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding UndoCommand}" Key="Z" Modifiers="Control" />
         <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
     </UserControl.InputBindings>
 
@@ -64,10 +65,10 @@
         </Storyboard>
 
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="Height" Value="50" />
+            <Setter Property="Height" Value="35" />
             <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Padding" Value="10" />
+            <!--<Setter Property="Margin" Value="5" />-->
+            <Setter Property="Padding" Value="10,0" />
             <Setter Property="Opacity" Value=".33" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -103,7 +104,7 @@
             <Setter Property="FontSize" Value="20" />
 
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Success}" Value="True">
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static viewModels:CommandStatus.Succeeded}">
                     <DataTrigger.EnterActions>
                         <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
                     </DataTrigger.EnterActions>
@@ -124,17 +125,23 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="PrepareButton" Grid.Row="0" Grid.Column="0" Style="{StaticResource ButtonStyle}" 
-                Content="AddLayer     Shift+A" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
+                Content="AddLayer     ( Shift+A )" Command="{Binding PrepareLayerCommand}" VerticalAlignment="Top" />
 
-        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ConsoleLines}" ClipToBounds="True" SelectedItem="{Binding ConsoleLine}"
+            <Button x:Name="DeleteButton" Style="{StaticResource ButtonStyle}" 
+                Content="Undo     Ctrl+Z" Command="{Binding UndoCommand}" VerticalAlignment="Top" />
+
+        </StackPanel>
+
+        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ConsoleLines}"
+                  ClipToBounds="True" SelectedItem="{Binding ConsoleLine}" Margin="5"
                   Background="Black" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                   VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Focusable="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBox Style="{StaticResource TextBoxCommandStyle}" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
-                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded"
-                             BorderThickness="0" />
+                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded" BorderThickness="0" />
                 </DataTemplate>
             </ListView.ItemTemplate>
 
@@ -154,7 +161,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        
+
         <ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent" BorderThickness="0" 
                   VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center">
