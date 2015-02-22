@@ -154,7 +154,9 @@ namespace ArchitectureModule.ViewModels
                 return CommandStatus.Failed;
             }
 
-            SelectedLayer = new Layer() { Id = tokens.Last(), Modules = new ObservableCollection<Module>() };
+            var layerName =  line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
+
+            SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
             Layers.Add(SelectedLayer);
             _services.AddLayer(SelectedLayer);
 

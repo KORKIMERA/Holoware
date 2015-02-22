@@ -14,6 +14,14 @@ namespace Holoware.Tests
     [TestClass]
     public class _Architecture
     {
+        #region Testware
+        [TestCleanup]
+        public void Cleanup()
+        {
+            ViewLocator.Instance.Clear();
+        }
+        #endregion
+
         [TestMethod]
         public void load_architecture()
         {
@@ -49,6 +57,29 @@ namespace Holoware.Tests
             var expectedStatus = viewModel.ConsoleLines.First().Status == CommandStatus.Succeeded;
 
             Assert.IsTrue(expectedCount && expectedStatus);
+        }
+
+        [TestMethod]
+        public void add_layer_fails_with_invalid_parameters()
+        {
+            // Setup
+            ModuleLoader.LoadModules();
+            MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
+
+            var view = ViewLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
+            var viewModel = view.DataContext as ConfigureArchitectureViewModel;
+
+            viewModel.ConsoleLine.Content = "AddLayer UX Layer";
+
+            // Test
+            viewModel.ExecuteCommand.Execute(null);
+
+            // Verify
+            var expectedCount = viewModel.ConsoleLines.Count() == 2;
+            var expectedLayerName = viewModel.Layers.Single().Id == "UX Layer";
+            var expectedStatus = viewModel.ConsoleLines.First().Status == CommandStatus.Succeeded;
+
+            Assert.IsTrue(expectedCount && expectedStatus && expectedLayerName);
         }
     }
 }
