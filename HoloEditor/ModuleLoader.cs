@@ -11,6 +11,7 @@ namespace HoloCoder
             var modules = new List<IModule>();
             modules.Add(new DependenciesModule.Infrastructure.DependenciesModule());
             modules.Add(new ArchitectureModule.Infrastructure.ArchitectureModule());
+            modules.Add(new ModulesModule.Infrastructure.ModulesModule());
             modules.Add(new OrchestrationModule.Infrastructure.WorkflowOrchestrationModule());
 
             return modules;

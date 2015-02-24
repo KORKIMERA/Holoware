@@ -8,8 +8,10 @@ namespace UIModule
 {
     public class UXServices
     {
+        #region Members
         Subscription _subscription = new Subscription();
         Regions _regions = new Regions();
+        #endregion
 
         #region Singleton
         static UXServices _UXServices = null;

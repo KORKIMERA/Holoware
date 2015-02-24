@@ -46,6 +46,7 @@
     <Compile Include="Entities\Modules.cs" />
     <Compile Include="Infrastructure\IModulesServices.cs" />
     <Compile Include="Infrastructure\ModulesDependencies.cs" />
+    <Compile Include="Infrastructure\ModulesModule.cs" />
     <Compile Include="Infrastructure\ModulesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ViewModels\ModulesViewModel.cs" />
@@ -61,6 +62,22 @@
     <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
       <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
       <Name>ModuleModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
+      <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
+      <Name>MessageModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
+      <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
+      <Name>Bizmonger.UILogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIModule\UXModule.csproj">
+      <Project>{df44d9a3-98d1-4faa-9005-2bd160e50fb3}</Project>
+      <Name>UXModule</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

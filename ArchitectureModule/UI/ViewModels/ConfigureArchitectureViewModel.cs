@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System;
+using ModulesModule.Entities;
 
 namespace ArchitectureModule.ViewModels
 {
@@ -22,6 +23,7 @@ namespace ArchitectureModule.ViewModels
         public ConfigureArchitectureViewModel()
         {
             PrepareLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
+
             ExecuteCommand = new DelegateCommand(obj =>
                 {
                     ConsoleLine = ConsoleLines.Last();
@@ -31,6 +33,11 @@ namespace ArchitectureModule.ViewModels
             UndoCommand = new DelegateCommand(obj =>
                 {
                     Undo();
+                });
+
+            LayerDefinitionCommand = new DelegateCommand(obj =>
+                {
+                    MessageBus.Instance.Publish(MessageModule.Messaging.UXMessage.REQUEST_LAYER_MODULES, SelectedLayer);
                 });
 
             _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
@@ -105,6 +112,8 @@ namespace ArchitectureModule.ViewModels
         public DelegateCommand PrepareLayerCommand { get; private set; }
         public DelegateCommand ExecuteCommand { get; private set; }
 
+        public DelegateCommand LayerDefinitionCommand { get; private set; }
+
         public DelegateCommand UndoCommand { get; private set; }
         #endregion
 
@@ -154,7 +163,7 @@ namespace ArchitectureModule.ViewModels
                 return CommandStatus.Failed;
             }
 
-            var layerName =  line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
+            var layerName = line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
 
             SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
             Layers.Add(SelectedLayer);

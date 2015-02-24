@@ -17,6 +17,7 @@
         <KeyBinding Command="{Binding PrepareLayerCommand}" Key="A" Modifiers="Shift" />
         <KeyBinding Command="{Binding UndoCommand}" Key="Z" Modifiers="Control" />
         <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
+        <!--<KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />-->
     </UserControl.InputBindings>
 
     <UserControl.Resources>
@@ -60,14 +61,14 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Style x:Key="TextBoxStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="60" />
             <Setter Property="Width" Value="300" />
             <Setter Property="FontSize" Value="32" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <!--<Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />-->
             <Setter Property="Background" >
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -76,6 +77,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
+
         </Style>
 
         <Style x:Key="TextBoxCommandStyle" TargetType="TextBox">
@@ -152,9 +154,13 @@
                   VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Id}" />
+                    <TextBlock Style="{StaticResource TextBoxStyle}" Text="{Binding Id}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
+            
+            <ListView.InputBindings>
+                <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
+            </ListView.InputBindings>
         </ListView>
     </Grid>
 </UserControl>
