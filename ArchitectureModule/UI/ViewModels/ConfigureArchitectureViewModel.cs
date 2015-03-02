@@ -4,12 +4,10 @@ using Bizmonger.Patterns;
 using Bizmonger.UILogic;
 using MessageModule;
 using ModuleModule.Entities;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System;
-using ModulesModule.Entities;
 
 namespace ArchitectureModule.ViewModels
 {

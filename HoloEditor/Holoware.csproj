@@ -140,6 +140,10 @@
       <Project>{df44d9a3-98d1-4faa-9005-2bd160e50fb3}</Project>
       <Name>UXModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserControlModule\Controls.csproj">
+      <Project>{0108dc69-dacc-4937-a6f0-7751da100818}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

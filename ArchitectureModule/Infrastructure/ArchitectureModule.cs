@@ -19,7 +19,7 @@ namespace ArchitectureModule.Infrastructure
 
             _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, (obj) =>
                 {
-                    UXServices.Instance.LoadView(typeof(ConfigureArchitectureView), RegionId.MAIN);
+                    UXServices.Instance.LoadView(typeof(Controls.Console), RegionId.MAIN);
                 });
         }
 
