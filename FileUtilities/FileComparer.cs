@@ -6,11 +6,9 @@ namespace Bizmonger.IO
 {
     public class FileComparer
     {
-        public static IEnumerable<string> GetUpdatedFiles(string sourceDirectory, string destinationDirectory)
+        public static IEnumerable<string> GetUpdatedFiles(string sourceDirectory, string destinationDirectory, IEnumerable<string> filterExtensions)
         {
-            var sourceFilePaths = Directory.EnumerateFiles(sourceDirectory).Where(f =>  Path.GetExtension(f).ToLower() == ".exe" || 
-                                                                                        Path.GetExtension(f).ToLower() == ".dll" ||
-                                                                                        Path.GetExtension(f).ToLower() == ".config");
+            var sourceFilePaths = Directory.EnumerateFiles(sourceDirectory).Where(f => filterExtensions.Contains(Path.GetExtension(f).ToLower()));
 
             foreach (var filePath in sourceFilePaths)
             {

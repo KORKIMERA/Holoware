@@ -1,5 +1,6 @@
 ﻿<UserControl x:Class="ArchitectureModule.UI.Views.ConfigureArchitectureView"
              x:Name="UserControl"
+             xmlns:usercontrols="clr-namespace:Controls;assembly=Controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -98,8 +99,10 @@
             </Style.Triggers>
         </Style>-->
     </UserControl.Resources>
+    
+    <usercontrols:Console />
 
-    <Grid Margin="5" >
+    <!--<Grid Margin="5" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
@@ -111,7 +114,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <!--<StackPanel Grid.Row="0" Grid.Column="0">
+        --><!--<StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
                     Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
@@ -161,6 +164,6 @@
             <ListView.InputBindings>
                 <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
             </ListView.InputBindings>
-        </ListView>-->
-    </Grid>
+        </ListView>--><!--
+    </Grid>-->
 </UserControl>

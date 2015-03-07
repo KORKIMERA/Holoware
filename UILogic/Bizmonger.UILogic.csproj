@@ -53,8 +53,8 @@
     <Compile Include="Converters\Boolean\BoolInverseConverter.cs" />
     <Compile Include="Converters\Boolean\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\Boolean\HasTextConverter.cs" />
-    <Compile Include="Converters\DateTimeNowConverter.cs" />
-    <Compile Include="Converters\DateToNullConverter.cs" />
+    <Compile Include="Converters\Date\DateTimeNowConverter.cs" />
+    <Compile Include="Converters\Date\DateToNullConverter.cs" />
     <Compile Include="Converters\IO\DirectoryExistsConverter.cs" />
     <Compile Include="Converters\Boolean\CountToBoolConverter.cs" />
     <Compile Include="Converters\CountToVisibilityConverter.cs" />
@@ -66,13 +66,10 @@
     <Compile Include="Converters\IO\FilePathToFileConverter.cs" />
     <Compile Include="Converters\Boolean\IsNegativeConverter.cs" />
     <Compile Include="Converters\Boolean\IsNullToBoolConverter.cs" />
-    <Compile Include="Converters\NetValueConverter.cs" />
     <Compile Include="Converters\String\RemoveLeadingZerosConverter.cs" />
     <Compile Include="Converters\Boolean\VisibilityToBoolNegationConverter.cs" />
     <Compile Include="Converters\String\TruncateEnumerablesConverter.cs" />
     <Compile Include="Converters\ZeroToNullConverter.cs" />
-    <Compile Include="Interactions\ConfirmationInteraction.cs" />
-    <Compile Include="Interactions\IConfirmationInteraction.cs" />
     <Compile Include="ViewLocator.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

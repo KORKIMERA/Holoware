@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ParticipationType.cs" />
     <Compile Include="UserInteraction.cs" />
     <Compile Include="UserInteractionEventArgs.cs" />
     <Compile Include="DelegateCommand.cs" />
