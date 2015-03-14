@@ -2,6 +2,7 @@
 using ArchitectureModule.Infrastructure;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
+using Controls.ConsolePackage;
 using MessageModule;
 using ModuleModule.Entities;
 using System;
@@ -197,32 +198,5 @@ namespace ArchitectureModule.ViewModels
             return false;
         }
         #endregion
-    }
-
-    public class ConsoleLine : ViewModelBase
-    {
-        public string Content { get; set; }
-
-        CommandStatus _status = CommandStatus.None;
-        public CommandStatus Status
-        {
-            get { return _status; }
-
-            set
-            {
-                if (_status != value)
-                {
-                    _status = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-    }
-
-    public enum CommandStatus
-    {
-        None = 0,
-        Failed,
-        Succeeded
     }
 }

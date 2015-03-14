@@ -104,6 +104,10 @@
       <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
       <Name>Bizmonger.UILogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserControlModule\Controls.csproj">
+      <Project>{0108dc69-dacc-4937-a6f0-7751da100818}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\HoloEditor\App.config">

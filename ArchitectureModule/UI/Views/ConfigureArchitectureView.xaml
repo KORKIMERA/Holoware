@@ -7,6 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ArchitectureModule.UI.Views"
              xmlns:viewModels="clr-namespace:ArchitectureModule.ViewModels"
+             xmlns:consolePackage="clr-namespace:Controls.ConsolePackage;assembly=Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600" Margin="20" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
 
@@ -26,7 +27,7 @@
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
         <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
 
-        <!--<Style TargetType="{x:Type ListViewItem}">
+        <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -68,8 +69,8 @@
             <Setter Property="FontSize" Value="32" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="TextAlignment" Value="Center" />
-            --><!--<Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />--><!--
+            <!--<Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />-->
             <Setter Property="Background" >
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -78,7 +79,6 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-
         </Style>
 
         <Style x:Key="TextBoxCommandStyle" TargetType="TextBox">
@@ -91,16 +91,16 @@
             <Setter Property="FontSize" Value="20" />
 
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Status}" Value="{x:Static viewModels:CommandStatus.Succeeded}">
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static consolePackage:CommandStatus.Succeeded}">
                     <DataTrigger.EnterActions>
                         <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
                     </DataTrigger.EnterActions>
                 </DataTrigger>
             </Style.Triggers>
-        </Style>-->
+        </Style>
     </UserControl.Resources>
     
-    <usercontrols:Console />
+    <usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" />
 
     <!--<Grid Margin="5" >
         <Grid.RowDefinitions>
@@ -114,7 +114,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        --><!--<StackPanel Grid.Row="0" Grid.Column="0">
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
                     Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
@@ -150,9 +150,9 @@
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
                 <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
             </ListView.Resources>
-        </ListView>-->
+        </ListView>
 
-        <!--<ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
+        <ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent" BorderThickness="0" 
                   VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
@@ -164,6 +164,6 @@
             <ListView.InputBindings>
                 <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
             </ListView.InputBindings>
-        </ListView>--><!--
+        </ListView>
     </Grid>-->
 </UserControl>

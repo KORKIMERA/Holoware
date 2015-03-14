@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="Controls.Console"
+             x:Name="UserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -95,7 +96,7 @@
 
         </StackPanel>
 
-        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ConsoleLines}"
+        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ElementName=UserControl,Path=ConsoleLinesSource}"
                   ClipToBounds="True" SelectedItem="{Binding ConsoleLine}" Margin="5"
                   Background="Black" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                   VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Focusable="False">

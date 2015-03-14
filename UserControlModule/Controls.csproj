@@ -46,6 +46,8 @@
     <Compile Include="Console.xaml.cs">
       <DependentUpon>Console.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConsolePackage\CommandLineStatus.cs" />
+    <Compile Include="ConsolePackage\ConsoleLine.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,6 +56,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
+      <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
+      <Name>Bizmonger.UILogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

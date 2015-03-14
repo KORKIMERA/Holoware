@@ -2,12 +2,6 @@
 using MessageModule;
 using System.Configuration;
 using System.Windows.Controls;
-using System;
-using ArchitectureModule.Infrastructure;
-using System.Windows.Input;
-using ArchitectureModule.ViewModels;
-using System.Windows.Media;
-using System.Collections.Specialized;
 
 namespace ArchitectureModule.UI.Views
 {
