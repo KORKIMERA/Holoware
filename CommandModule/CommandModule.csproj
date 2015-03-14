@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Architecture.Scope\ViewLayerCommand.cs" />
     <Compile Include="Architecture.Scope\AddLayerCommand.cs" />
     <Compile Include="Infrastructure\CommandTemplate.cs" />
     <Compile Include="Infrastructure\CommandLineStatus.cs" />

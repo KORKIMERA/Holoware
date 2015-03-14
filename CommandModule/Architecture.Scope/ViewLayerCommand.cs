@@ -2,7 +2,7 @@
 
 namespace CommandModule.Architecture.Scope
 {
-    public class AddLayerCommand : CommandTemplate
+    public class ViewLayerCommand : CommandTemplate
     {
         public override bool ValidateParameter(string v)
         {
@@ -16,7 +16,7 @@ namespace CommandModule.Architecture.Scope
 
         public override bool ValidateInstruction(string text)
         {
-            if (text.ToLower() == "addlayer" || text.ToLower() == "al")
+            if (text.ToLower() == "viewlayer" || text.ToLower() == "vl")
             {
                 return true;
             }
