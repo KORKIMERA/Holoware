@@ -2,7 +2,7 @@
 using ArchitectureModule.Infrastructure;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
-using Controls.ConsolePackage;
+using CommandModule.Infrastructure;
 using MessageModule;
 using ModuleModule.Entities;
 using System;
@@ -196,6 +196,11 @@ namespace ArchitectureModule.ViewModels
         private bool ValidateInstruction(string text)
         {
             if (text.ToLower() == "addlayer" || text.ToLower() == "al")
+            {
+                return true;
+            }
+
+            if (text.ToLower() == "viewlayer" || text.ToLower() == "vl")
             {
                 return true;
             }

@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:consolePackage="clr-namespace:Controls.ConsolePackage"
+             xmlns:commandInfrastructure="clr-namespace:CommandModule.Infrastructure;assembly=CommandModule"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -80,14 +80,14 @@
             <Setter Property="FontSize" Value="20" />
 
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Status}" Value="{x:Static consolePackage:CommandStatus.Succeeded}">
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static commandInfrastructure:CommandStatus.Succeeded}">
                     <!--<DataTrigger.EnterActions>
                         <BeginStoryboard Storyboard="{StaticResource CommandSucessfulStory}"/>
                     </DataTrigger.EnterActions>-->
                     <Setter Property="Foreground" Value="LightGreen" />
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Status}" Value="{x:Static consolePackage:CommandStatus.Failed}">
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static commandInfrastructure:CommandStatus.Failed}">
                     <DataTrigger.EnterActions>
                         <BeginStoryboard Storyboard="{StaticResource CommandFailedStory}"/>
                     </DataTrigger.EnterActions>

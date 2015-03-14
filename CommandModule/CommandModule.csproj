@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0108DC69-DACC-4937-A6F0-7751DA100818}</ProjectGuid>
+    <ProjectGuid>{63923F41-C366-46A5-BC14-FE974E971898}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Controls</RootNamespace>
-    <AssemblyName>Controls</AssemblyName>
+    <RootNamespace>CommandModule</RootNamespace>
+    <AssemblyName>CommandModule</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,43 +30,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console.xaml.cs">
-      <DependentUpon>Console.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructure\Constants.cs" />
+    <Compile Include="Architecture.Scope\AddLayerCommand.cs" />
+    <Compile Include="Infrastructure\CommandTemplate.cs" />
+    <Compile Include="Infrastructure\CommandLineStatus.cs" />
+    <Compile Include="Infrastructure\ConsoleLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Console.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommandModule\CommandModule.csproj">
-      <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
-      <Name>CommandModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
       <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
       <Name>Bizmonger.UILogic</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ConsolePackage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
