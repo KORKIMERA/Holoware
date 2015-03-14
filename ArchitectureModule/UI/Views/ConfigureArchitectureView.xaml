@@ -44,7 +44,7 @@
             </Setter>-->
         </Style>
 
-        <!--<Style x:Key="ButtonStyle" TargetType="Button">
+        <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="35" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="Padding" Value="10,0" />
@@ -53,9 +53,9 @@
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
-        </Style>-->
+        </Style>
 
-        <!--<Style x:Key="TextBoxStyle" TargetType="TextBlock">
+        <Style x:Key="TextBoxStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="60" />
             <Setter Property="Width" Value="300" />
             <Setter Property="FontSize" Value="32" />
@@ -69,12 +69,10 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
     </UserControl.Resources>
 
-    <usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" />
-
-    <!--<Grid Margin="5" >
+    <Grid Margin="5" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
@@ -99,30 +97,7 @@
 
         </StackPanel>
 
-        <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ConsoleLines}"
-                  ClipToBounds="True" SelectedItem="{Binding ConsoleLine}" Margin="5"
-                  Background="Black" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
-                  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Focusable="False">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBox Style="{StaticResource TextBoxCommandStyle}" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
-                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded" BorderThickness="0" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="Background" Value="{x:Null}" />
-                    <Setter Property="BorderBrush" Value="{x:Null}" />
-                    <Setter Property="Focusable" Value="False" />
-                </Style>
-            </ListView.ItemContainerStyle>
-
-            <ListView.Resources>
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
-            </ListView.Resources>
-        </ListView>
+        <usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" />
 
         <ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent" BorderThickness="0" 
@@ -137,5 +112,5 @@
                 <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
             </ListView.InputBindings>
         </ListView>
-    </Grid>-->
+    </Grid>
 </UserControl>
