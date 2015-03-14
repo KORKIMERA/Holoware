@@ -4,11 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:consolePackage="clr-namespace:Controls.ConsolePackage"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.Resources>
-                <Style TargetType="{x:Type ListViewItem}">
+        <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -25,11 +26,19 @@
             </Setter>
         </Style>
 
-        <Storyboard x:Key="Storyboard1">
+        <Storyboard x:Key="CommandSucessfulStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
                 <EasingColorKeyFrame KeyTime="0" Value="Cyan"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.33" Value="LightGreen"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.5" Value="LightGray"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="CommandFailedStory">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Cyan"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.33" Value="OrangeRed"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="Cyan"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -50,8 +59,6 @@
             <Setter Property="FontSize" Value="32" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="TextAlignment" Value="Center" />
-            <!--<Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />-->
             <Setter Property="Background" >
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -72,18 +79,26 @@
             <Setter Property="Foreground" Value="Cyan"/>
             <Setter Property="FontSize" Value="20" />
 
-            <!--<Style.Triggers>
-                <DataTrigger Binding="{Binding Status}" Value="{x:Static viewModels:CommandStatus.Succeeded}">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-                    </DataTrigger.EnterActions>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static consolePackage:CommandStatus.Succeeded}">
+                    <!--<DataTrigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource CommandSucessfulStory}"/>
+                    </DataTrigger.EnterActions>-->
+                    <Setter Property="Foreground" Value="LightGreen" />
                 </DataTrigger>
-            </Style.Triggers>-->
+
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static consolePackage:CommandStatus.Failed}">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource CommandFailedStory}"/>
+                    </DataTrigger.EnterActions>
+                    <!--<Setter Property="Foreground" Value="Red" />-->
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
     <Grid>
-        
-            <StackPanel Grid.Row="0" Grid.Column="0">
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
                     Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />

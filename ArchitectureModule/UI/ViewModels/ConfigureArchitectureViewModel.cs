@@ -26,7 +26,14 @@ namespace ArchitectureModule.ViewModels
             ExecuteCommand = new DelegateCommand(obj =>
                 {
                     ConsoleLine = ConsoleLines.Last();
-                    ConsoleLine.Status = Execute(ConsoleLines.Last());
+                    ConsoleLine.Status = CommandStatus.None;
+                    ConsoleLine.Status = Execute(ConsoleLine);
+
+                    if (ConsoleLine.Status == CommandStatus.Succeeded)
+                    {
+                        ConsoleLine = new ConsoleLine();
+                        ConsoleLines.Add(ConsoleLine);
+                    }
                 });
 
             UndoCommand = new DelegateCommand(obj =>
@@ -148,14 +155,14 @@ namespace ArchitectureModule.ViewModels
                 return CommandStatus.Failed;
             }
 
-            var isValidIstruction = ValidateInstruction(tokens[0]);
+            var isValidInstruction = ValidateInstruction(tokens[0]);
 
-            if (!isValidIstruction)
+            if (!isValidInstruction)
             {
                 return CommandStatus.Failed;
             }
 
-            var isValidParameter = ValidatePaameter(tokens[1]);
+            var isValidParameter = ValidateParameter(tokens[1]);
 
             if (!isValidParameter)
             {
@@ -168,8 +175,6 @@ namespace ArchitectureModule.ViewModels
             Layers.Add(SelectedLayer);
             _services.AddLayer(SelectedLayer);
 
-            ConsoleLine = new ConsoleLine();
-            ConsoleLines.Add(ConsoleLine);
             return CommandStatus.Succeeded;
         }
 
@@ -178,7 +183,7 @@ namespace ArchitectureModule.ViewModels
             throw new NotImplementedException();
         }
 
-        private bool ValidatePaameter(string v)
+        private bool ValidateParameter(string v)
         {
             if (!string.IsNullOrWhiteSpace(v))
             {
