@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace CommandModule.Infrastructure
 {
-    public class CommandPreprossor
+    public class CommandLinePreprossor
     {
-        static CommandPreprossor()
+        static CommandLinePreprossor()
         {
             MessageBus.Instance.Subscribe(Messages.COMMAND_LINE_SUBMITTED, obj =>
             {
@@ -13,12 +13,23 @@ namespace CommandModule.Infrastructure
 
                 if (string.IsNullOrWhiteSpace(commandLine))
                 {
-                    return;
+                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
                 }
 
                 var rootCommand = commandLine.Split(' ').First().ToLower();
+                var handled = false;
+
+                MessageBus.Instance.SubscribeFirstPublication(Messages.COMMAND_LINE_HANDLER_FOUND, o =>
+                    {
+                        handled = true;
+                    });
 
                 MessageBus.Instance.Publish(rootCommand, commandLine);
+
+                if (!handled)
+                {
+                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+                }
             });
         }
     }
