@@ -34,11 +34,19 @@ namespace ArchitectureModule.ViewModels
 
                             if (ConsoleLine.Status == CommandStatus.Succeeded)
                             {
+                                var tokens = ConsoleLine.Content.Split(' ');
+
+                                var line = ConsoleLine.Content;
+                                var layerName = line.Remove(line.IndexOf(tokens[0]), tokens[0].Length).Trim();
+
+                                SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
+                                Layers.Add(SelectedLayer);
+                                _services.AddLayer(SelectedLayer);
+
                                 ConsoleLine = new ConsoleLine();
                                 ConsoleLines.Add(ConsoleLine);
                             }
                         });
-
 
                     MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
@@ -148,42 +156,42 @@ namespace ArchitectureModule.ViewModels
 
         #region Helpers
 
-        private CommandStatus Execute(ConsoleLine line)
-        {
-            if (line?.Content == null)
-            {
-                return CommandStatus.Failed;
-            }
+        //private CommandStatus Execute(ConsoleLine line)
+        //{
+        //    if (line?.Content == null)
+        //    {
+        //        return CommandStatus.Failed;
+        //    }
 
-            var tokens = line.Content.Split(' ');
+        //    var tokens = line.Content.Split(' ');
 
-            if (!(tokens.Count() > 1))
-            {
-                return CommandStatus.Failed;
-            }
+        //    if (!(tokens.Count() > 1))
+        //    {
+        //        return CommandStatus.Failed;
+        //    }
 
-            var isValidInstruction = ValidateInstruction(tokens[0]);
+        //    var isValidInstruction = ValidateInstruction(tokens[0]);
 
-            if (!isValidInstruction)
-            {
-                return CommandStatus.Failed;
-            }
+        //    if (!isValidInstruction)
+        //    {
+        //        return CommandStatus.Failed;
+        //    }
 
-            var isValidParameter = ValidateParameter(tokens[1]);
+        //    var isValidParameter = ValidateParameter(tokens[1]);
 
-            if (!isValidParameter)
-            {
-                return CommandStatus.Failed;
-            }
+        //    if (!isValidParameter)
+        //    {
+        //        return CommandStatus.Failed;
+        //    }
 
-            var layerName = line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
+        //    var layerName = line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
 
-            SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
-            Layers.Add(SelectedLayer);
-            _services.AddLayer(SelectedLayer);
+        //    SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
+        //    Layers.Add(SelectedLayer);
+        //    _services.AddLayer(SelectedLayer);
 
-            return CommandStatus.Succeeded;
-        }
+        //    return CommandStatus.Succeeded;
+        //}
 
         private void Undo()
         {
