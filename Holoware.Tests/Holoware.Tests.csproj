@@ -72,6 +72,10 @@
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommandModule\CommandModule.csproj">
+      <Project>{63923F41-C366-46A5-BC14-FE974E971898}</Project>
+      <Name>CommandModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HoloEditor\Holoware.csproj">
       <Project>{ced68376-b2af-4dff-b83d-f082d4d1cecc}</Project>
       <Name>Holoware</Name>

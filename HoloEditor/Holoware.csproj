@@ -108,6 +108,10 @@
       <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
       <Name>ClassModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommandModule\CommandModule.csproj">
+      <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
+      <Name>CommandModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DependenciesModule\DependenciesModule.csproj">
       <Project>{6f485675-662b-42f2-ab5d-01a3171da056}</Project>
       <Name>DependenciesModule</Name>

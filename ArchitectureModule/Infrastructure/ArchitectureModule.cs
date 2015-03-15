@@ -1,4 +1,5 @@
-﻿using ArchitectureModule.UI.Views;
+﻿using ArchitectureModule.Commands;
+using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
 using MessageModule.Messaging;
@@ -21,6 +22,8 @@ namespace ArchitectureModule.Infrastructure
                 {
                     UXServices.Instance.LoadView(typeof(ConfigureArchitectureView), RegionId.MAIN);
                 });
+
+            AddLayerCommand.Initialize();
         }
 
         public void Initialize()

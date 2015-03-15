@@ -3,7 +3,7 @@ using ArchitectureModule.UI.Views;
 using ArchitectureModule.ViewModels;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
-using Controls.ConsolePackage;
+using CommandModule.Infrastructure;
 using HoloCoder;
 using Holoware.TestAPI;
 using MessageModule;

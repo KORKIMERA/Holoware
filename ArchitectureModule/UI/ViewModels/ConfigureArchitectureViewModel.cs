@@ -27,13 +27,20 @@ namespace ArchitectureModule.ViewModels
                 {
                     ConsoleLine = ConsoleLines.Last();
                     ConsoleLine.Status = CommandStatus.None;
-                    ConsoleLine.Status = Execute(ConsoleLine);
 
-                    if (ConsoleLine.Status == CommandStatus.Succeeded)
-                    {
-                        ConsoleLine = new ConsoleLine();
-                        ConsoleLines.Add(ConsoleLine);
-                    }
+                    _subscription.SubscribeFirstPublication(Messages.COMMAND_LINE_PROCESSED, status =>
+                        {
+                            ConsoleLine.Status = (CommandStatus)status;
+
+                            if (ConsoleLine.Status == CommandStatus.Succeeded)
+                            {
+                                ConsoleLine = new ConsoleLine();
+                                ConsoleLines.Add(ConsoleLine);
+                            }
+                        });
+
+
+                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
 
             UndoCommand = new DelegateCommand(obj =>

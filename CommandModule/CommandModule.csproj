@@ -39,19 +39,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Architecture.Scope\ViewLayerCommand.cs" />
-    <Compile Include="Architecture.Scope\AddLayerCommand.cs" />
+    <Compile Include="Infrastructure\CommandModule.cs" />
+    <Compile Include="Infrastructure\CommandPreprossor.cs" />
     <Compile Include="Infrastructure\CommandTemplate.cs" />
     <Compile Include="Infrastructure\CommandLineStatus.cs" />
     <Compile Include="Infrastructure\ConsoleLine.cs" />
+    <Compile Include="Infrastructure\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseModule\BaseModule.csproj">
+      <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
+      <Name>BaseModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
+      <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
+      <Name>MessageModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UILogic\Bizmonger.UILogic.csproj">
       <Project>{b9aee580-fd19-4a1a-8f22-a5027961970e}</Project>
       <Name>Bizmonger.UILogic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

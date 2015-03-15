@@ -1,5 +1,4 @@
 ﻿using BaseModule;
-using OrchestrationModule.Infrastructure;
 using System.Collections.Generic;
 
 namespace HoloCoder
@@ -13,7 +12,7 @@ namespace HoloCoder
             modules.Add(new ArchitectureModule.Infrastructure.ArchitectureModule());
             modules.Add(new ModulesModule.Infrastructure.ModulesModule());
             modules.Add(new OrchestrationModule.Infrastructure.WorkflowOrchestrationModule());
-
+            modules.Add(new CommandModule.Infrastructure.CommandModule());
             return modules;
         }
     }
