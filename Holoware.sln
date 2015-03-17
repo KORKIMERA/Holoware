@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{0822
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A8DC7B17-6E99-4287-9937-1B1EC8544208}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowModules", "WorkflowModules", "{B5676292-9947-4AE0-9211-0FB5A399F21E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflow.Modules", "Workflow.Modules", "{B5676292-9947-4AE0-9211-0FB5A399F21E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SystemModules", "SystemModules", "{9C35BCE9-9A31-4E0A-9AC7-AD72C0DF2A87}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.Modules", "Core.Modules", "{9C35BCE9-9A31-4E0A-9AC7-AD72C0DF2A87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageModule", "NotificationModule\MessageModule.csproj", "{07A964AC-BDCF-42A8-B12C-C91D4FF29BA6}"
 EndProject
