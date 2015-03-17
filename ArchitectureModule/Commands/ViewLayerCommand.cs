@@ -6,10 +6,15 @@ namespace ArchitectureModule.Commands
 {
     public class ViewLayerCommand
     {
+        #region Constants
+        const string VIEW_LAYER_COMMAND_FULL_TEXT = "viewlayer";
+        const string VIEW_LAYER_COMMAND_SHORT_TEXT = "vl";
+        #endregion
+
         static ViewLayerCommand()
         {
-            MessageBus.Instance.Subscribe("viewlayer", obj => Execute(obj as string));
-            MessageBus.Instance.Subscribe("vl", obj => Execute(obj as string));
+            MessageBus.Instance.Subscribe(VIEW_LAYER_COMMAND_FULL_TEXT, obj => Execute(obj as string));
+            MessageBus.Instance.Subscribe(VIEW_LAYER_COMMAND_SHORT_TEXT, obj => Execute(obj as string));
         }
 
         public static void Initialize() { }
