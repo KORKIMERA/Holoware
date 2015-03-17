@@ -44,6 +44,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Validation\BaseValidator.cs" />
+    <Compile Include="Commands\DeleteLayerCommand.cs" />
     <Compile Include="Commands\AddLayerCommand.cs" />
     <Compile Include="Commands\ViewLayerCommand.cs" />
     <Compile Include="Entities\Architecture.cs" />
@@ -122,6 +124,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

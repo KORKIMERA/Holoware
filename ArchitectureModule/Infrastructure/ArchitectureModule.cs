@@ -18,12 +18,14 @@ namespace ArchitectureModule.Infrastructure
             UXServices.Instance.Register(typeof(ConfigureArchitectureView));
             UXServices.Instance.Register(typeof(LoadArchitectureView));
 
-            _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, (obj) =>
+            _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, obj =>
                 {
                     UXServices.Instance.LoadView(typeof(ConfigureArchitectureView), RegionId.MAIN);
                 });
 
             AddLayerCommand.Initialize();
+            ViewLayerCommand.Initialize();
+            DeleteLayerCommand.Initialize();
         }
 
         public void Initialize()

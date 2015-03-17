@@ -1,28 +1,31 @@
-﻿using System;
-using CommandModule.Infrastructure;
+﻿using CommandModule.Infrastructure;
+using Bizmonger.Patterns;
+using ArchitectureModule.Commands.Validation;
 
 namespace ArchitectureModule.Commands
 {
-    public class ViewLayerCommand : CommandProcessor
+    public class ViewLayerCommand
     {
-        public override CommandStatus Execute(string line)
+        static ViewLayerCommand()
         {
-            throw new NotImplementedException();
+            MessageBus.Instance.Subscribe("viewlayer", obj => Execute(obj as string));
+            MessageBus.Instance.Subscribe("vl", obj => Execute(obj as string));
         }
 
-        public override void Initialize()
-        {
-            throw new NotImplementedException();
-        }
+        public static void Initialize() { }
 
-        public override bool ValidateParameter(string parameter)
+        public static void Execute(string line)
         {
-            throw new NotImplementedException();
-        }
+            var isValidInstruction = BaseValidator.Validate(line, "viewlayer", "vl" );
 
-        public override bool ValidateRootCommand(string text)
-        {
-            throw new NotImplementedException();
+            if (!isValidInstruction)
+            {
+                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+            }
+            else
+            {
+                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Succeeded);
+            }
         }
     }
 }
