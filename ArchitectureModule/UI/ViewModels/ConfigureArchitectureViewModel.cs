@@ -28,25 +28,7 @@ namespace ArchitectureModule.ViewModels
                     ConsoleLine = ConsoleLines.Last();
                     ConsoleLine.Status = CommandStatus.None;
 
-                    _subscription.SubscribeFirstPublication(Messages.COMMAND_LINE_PROCESSED, status =>
-                        {
-                            ConsoleLine.Status = (CommandStatus)status;
-
-                            if (ConsoleLine.Status == CommandStatus.Succeeded)
-                            {
-                                var tokens = ConsoleLine.Content.Split(' ');
-
-                                var line = ConsoleLine.Content;
-                                var layerName = line.Remove(line.IndexOf(tokens[0]), tokens[0].Length).Trim();
-
-                                SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
-                                Layers.Add(SelectedLayer);
-                                _services.AddLayer(SelectedLayer);
-
-                                ConsoleLine = new ConsoleLine();
-                                ConsoleLines.Add(ConsoleLine);
-                            }
-                        });
+                    _subscription.SubscribeFirstPublication(Messages.COMMAND_LINE_PROCESSED, OnProcessed);
 
                     MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
@@ -155,73 +137,56 @@ namespace ArchitectureModule.ViewModels
         }
 
         #region Helpers
+        private void OnProcessed(object obj)
+        {
+            ConsoleLine.Status = (CommandStatus)obj;
 
-        //private CommandStatus Execute(ConsoleLine line)
-        //{
-        //    if (line?.Content == null)
-        //    {
-        //        return CommandStatus.Failed;
-        //    }
+            if (ConsoleLine.Status == CommandStatus.Succeeded)
+            {
+                UpdateUI();
 
-        //    var tokens = line.Content.Split(' ');
+                ConsoleLine = new ConsoleLine();
+                ConsoleLines.Add(ConsoleLine);
+            }
+        }
 
-        //    if (!(tokens.Count() > 1))
-        //    {
-        //        return CommandStatus.Failed;
-        //    }
+        private void UpdateUI()
+        {
+            var tokens = ConsoleLine.Content.Split(' ');
 
-        //    var isValidInstruction = ValidateInstruction(tokens[0]);
+            var line = ConsoleLine.Content;
+            var layerName = line.Remove(line.IndexOf(tokens.First()), tokens.First().Length).Trim();
+            var rootCommand = tokens.First().ToLower();
 
-        //    if (!isValidInstruction)
-        //    {
-        //        return CommandStatus.Failed;
-        //    }
+            switch (rootCommand)
+            {
+                case "al":
+                case "addlayer":
+                    {
+                        SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
+                        Layers.Add(SelectedLayer);
 
-        //    var isValidParameter = ValidateParameter(tokens[1]);
+                        _services.AddLayer(SelectedLayer);
+                        break;
+                    }
 
-        //    if (!isValidParameter)
-        //    {
-        //        return CommandStatus.Failed;
-        //    }
+                case "dl":
+                case "deletelayer":
+                    {
+                        SelectedLayer = Layers.Where(l => l.Id == layerName).Single();
+                        Layers.Remove(SelectedLayer);
 
-        //    var layerName = line.Content.Remove(line.Content.IndexOf(tokens[0]), tokens[0].Length).Trim();
-
-        //    SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
-        //    Layers.Add(SelectedLayer);
-        //    _services.AddLayer(SelectedLayer);
-
-        //    return CommandStatus.Succeeded;
-        //}
+                        _services.AddLayer(SelectedLayer);
+                        break;
+                    }
+            }
+        }
 
         private void Undo()
         {
             throw new NotImplementedException();
         }
 
-        private bool ValidateParameter(string v)
-        {
-            if (!string.IsNullOrWhiteSpace(v))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool ValidateInstruction(string text)
-        {
-            if (text.ToLower() == "addlayer" || text.ToLower() == "al")
-            {
-                return true;
-            }
-
-            if (text.ToLower() == "viewlayer" || text.ToLower() == "vl")
-            {
-                return true;
-            }
-
-            return false;
-        }
         #endregion
     }
 }
