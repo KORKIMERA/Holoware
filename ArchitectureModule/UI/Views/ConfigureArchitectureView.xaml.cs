@@ -1,4 +1,5 @@
 ﻿using Bizmonger.Patterns;
+using CommandModule.Infrastructure;
 using MessageModule;
 using System.Configuration;
 using System.Windows.Controls;
@@ -15,7 +16,7 @@ namespace ArchitectureModule.UI.Views
             InitializeComponent();
 
             var isIntegrationMode = ConfigurationManager.AppSettings["IsIntegrationMode"] as string;
-            MessageBus.Instance.Publish(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES, bool.Parse(isIntegrationMode));
+            MessageBus.Instance.Publish(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES, bool.Parse(isIntegrationMode));
         }
     }
 }

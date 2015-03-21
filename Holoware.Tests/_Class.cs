@@ -1,4 +1,5 @@
-﻿using Bizmonger.UILogic;
+﻿using Bizmonger.Patterns;
+using Bizmonger.UILogic;
 using ClassModule.Infrastructure;
 using ClassModule.ViewModels;
 using Holoware.TestAPI;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Holoware.Tests
 {
@@ -18,7 +20,7 @@ namespace Holoware.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            ViewLocator.Instance.Clear();
+            ServiceLocator.Instance.Clear();
         }
         #endregion
 

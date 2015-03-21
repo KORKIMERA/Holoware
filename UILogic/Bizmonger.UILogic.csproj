@@ -70,7 +70,6 @@
     <Compile Include="Converters\Boolean\VisibilityToBoolNegationConverter.cs" />
     <Compile Include="Converters\String\TruncateEnumerablesConverter.cs" />
     <Compile Include="Converters\ZeroToNullConverter.cs" />
-    <Compile Include="ViewLocator.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +77,10 @@
     <ProjectReference Include="..\FileUtilities\Bizmonger.IO.csproj">
       <Project>{092cd559-ece3-425f-afcf-a75b733991cf}</Project>
       <Name>Bizmonger.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
+      <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
+      <Name>Bizmonger.Patterns</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

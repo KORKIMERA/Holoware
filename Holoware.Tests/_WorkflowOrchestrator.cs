@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrchestrationModule;
 using OrchestrationModule.ApplicationStates;
 using Bizmonger.UILogic;
+using System.Windows.Controls;
+using Bizmonger.Patterns;
 
 namespace Holoware.Tests
 {
@@ -13,7 +15,7 @@ namespace Holoware.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            ViewLocator.Instance.Clear();
+            ServiceLocator.Instance.Clear();
         }
         #endregion
 

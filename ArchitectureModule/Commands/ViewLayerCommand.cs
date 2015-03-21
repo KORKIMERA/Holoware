@@ -1,25 +1,24 @@
 ﻿using CommandModule.Infrastructure;
 using Bizmonger.Patterns;
 using ArchitectureModule.Commands.Validation;
+using System;
 
 namespace ArchitectureModule.Commands
 {
-    public class ViewLayerCommand
+    public class ViewLayerCommand : CommandBase
     {
         #region Constants
         const string VIEW_LAYER_COMMAND_FULL_TEXT = "viewlayer";
         const string VIEW_LAYER_COMMAND_SHORT_TEXT = "vl";
         #endregion
 
-        static ViewLayerCommand()
+        public ViewLayerCommand()
         {
             MessageBus.Instance.Subscribe(VIEW_LAYER_COMMAND_FULL_TEXT, obj => Execute(obj as string));
             MessageBus.Instance.Subscribe(VIEW_LAYER_COMMAND_SHORT_TEXT, obj => Execute(obj as string));
         }
 
-        public static void Initialize() { }
-
-        public static void Execute(string line)
+        public void Execute(string line)
         {
             var isValidInstruction = BaseValidator.Validate(line, "viewlayer", "vl" );
 
@@ -31,6 +30,11 @@ namespace ArchitectureModule.Commands
             {
                 MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Succeeded);
             }
+        }
+
+        public override void Initialize()
+        {
+            throw new NotImplementedException();
         }
     }
 }

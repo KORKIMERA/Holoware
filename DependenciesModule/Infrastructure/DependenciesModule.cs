@@ -15,13 +15,15 @@ namespace DependenciesModule.Infrastructure
 
         public DependenciesModule()
         {
-            _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES, obj =>
+            _subscription.Subscribe(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES, obj =>
                 {
                     var isIntegrationMode = (bool)obj;
                     var dependencies = Generate(isIntegrationMode);
 
-                    MessageBus.Instance.Publish(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, dependencies);
+                    MessageBus.Instance.Publish(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, dependencies);
                 });
+
+            _subscription.Subscribe(SystemMessage.REQUEST_BOOTSTRAP, (obj) => { Generate(isIntegrationMode: false); });
         }
 
         public void Initialize()

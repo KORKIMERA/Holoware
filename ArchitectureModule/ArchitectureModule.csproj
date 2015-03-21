@@ -44,8 +44,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\Initializable.cs" />
     <Compile Include="Commands\Validation\BaseValidator.cs" />
-    <Compile Include="Commands\DeleteLayerCommand.cs" />
+    <Compile Include="Commands\RemoveLayerCommand.cs" />
     <Compile Include="Commands\AddLayerCommand.cs" />
     <Compile Include="Commands\ViewLayerCommand.cs" />
     <Compile Include="Entities\Architecture.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="Infrastructure\ArchitectureModule.cs" />
     <Compile Include="Infrastructure\ArchitectureServices.cs" />
     <Compile Include="Infrastructure\ArchitectureDependencies.cs" />
+    <Compile Include="Infrastructure\Dependencies.cs" />
     <Compile Include="Infrastructure\IArchitectureServices.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +83,10 @@
     <ProjectReference Include="..\CommandModule\CommandModule.csproj">
       <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
       <Name>CommandModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalMessages\Global.csproj">
+      <Project>{6500a446-bd34-4639-a8e3-b7efef598b01}</Project>
+      <Name>Global</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
       <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>

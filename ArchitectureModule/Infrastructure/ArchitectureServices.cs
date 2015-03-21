@@ -1,4 +1,7 @@
 ﻿using ArchitectureModule.Entities;
+using Bizmonger.Patterns;
+using CommandModule.Infrastructure;
+using MessageModule;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +9,16 @@ namespace ArchitectureModule.Infrastructure
 {
     public class ArchitectureServices : IArchitectureServices
     {
+        Subscription _subscription = new Subscription();
+
+        public ArchitectureServices()
+        {
+            _subscription.Subscribe(SystemMessage.REQUEST_BOOTSTRAP, (obj) =>
+                {
+                    MessageBus.Instance.Publish(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, this);
+                });
+        }
+
         public void AddLayer(Layer layer)
         {
             throw new NotImplementedException();

@@ -43,7 +43,7 @@ namespace ArchitectureModule.ViewModels
                     MessageBus.Instance.Publish(MessageModule.Messaging.UXMessage.REQUEST_LAYER_MODULES, SelectedLayer);
                 });
 
-            _subscription.Subscribe(SystemMessage.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
+            _subscription.SubscribeFirstPublication(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
                 {
                     var dependencies = obj as ArchitectureDependencies;
                     _services = dependencies.Services;
@@ -170,10 +170,16 @@ namespace ArchitectureModule.ViewModels
                         break;
                     }
 
-                case "dl":
-                case "deletelayer":
+                case "rl":
+                case "removelayer":
                     {
-                        SelectedLayer = Layers.Where(l => l.Id == layerName).Single();
+                        SelectedLayer = Layers.Where(l => l.Id == layerName).SingleOrDefault();
+
+                        if (SelectedLayer == null)
+                        {
+                            MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+                        }
+
                         Layers.Remove(SelectedLayer);
 
                         _services.AddLayer(SelectedLayer);

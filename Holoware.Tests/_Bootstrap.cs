@@ -2,6 +2,7 @@
 using Bizmonger.UILogic;
 using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Windows.Controls;
 
 namespace HoloCoder.Tests
 {
@@ -12,7 +13,7 @@ namespace HoloCoder.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            ViewLocator.Instance.Clear();
+            ServiceLocator.Instance.Clear();
         }
         #endregion
 

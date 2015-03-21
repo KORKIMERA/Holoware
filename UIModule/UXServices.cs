@@ -2,6 +2,7 @@
 using Bizmonger.UILogic;
 using MessageModule.Messaging;
 using System;
+using System.Windows.Controls;
 using UXModule;
 
 namespace UIModule
@@ -32,12 +33,12 @@ namespace UIModule
 
         public void Register(Type viewType)
         {
-            ViewLocator.Instance.Register(viewType);
+            ServiceLocator.Instance.Register(viewType);
         }
 
         public void LoadView(Type viewType, RegionId regionId)
         {
-            var view = ViewLocator.Instance[viewType];
+            var view = ServiceLocator.Instance[viewType];
 
             switch (regionId)
             {

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="UserInteraction.cs" />
     <Compile Include="UserInteractionEventArgs.cs" />
     <Compile Include="DelegateCommand.cs" />

@@ -9,6 +9,7 @@ using Holoware.TestAPI;
 using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace Holoware.Tests
 {
@@ -19,7 +20,7 @@ namespace Holoware.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            ViewLocator.Instance.Clear();
+            ServiceLocator.Instance.Clear();
         }
         #endregion
 
@@ -45,7 +46,7 @@ namespace Holoware.Tests
             ModuleLoader.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
-            var view = ViewLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
+            var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
             var viewModel = view.DataContext as ConfigureArchitectureViewModel;
 
             viewModel.ConsoleLine.Content = "AddLayer UX";
@@ -67,7 +68,7 @@ namespace Holoware.Tests
             ModuleLoader.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
-            var view = ViewLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
+            var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
             var viewModel = view.DataContext as ConfigureArchitectureViewModel;
 
             viewModel.ConsoleLine.Content = "AddLayer UX Layer";

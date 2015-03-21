@@ -10,11 +10,11 @@ namespace CommandModule.Infrastructure
 
         public CommandModule()
         {
-            _subscription.Subscribe(SystemMessage.REQUEST_BOOTSTRAP, (obj) => { new CommandLinePreprossor(); ; });
+            _subscription.Subscribe(SystemMessage.REQUEST_BOOTSTRAP, (obj) => { new CommandLinePreprossor(); });
         }
         public void Initialize()
         {
-            
+
         }
     }
 }
