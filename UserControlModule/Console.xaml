@@ -117,7 +117,13 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBox Style="{StaticResource TextBoxCommandStyle}" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
-                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded" BorderThickness="0" />
+                             TextChanged="OnTextChanged" Loaded="OnCommandLineLoaded" BorderThickness="0">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="A" Modifiers="Shift" Command="ApplicationCommands.NotACommand" />
+                            <KeyBinding Key="R" Modifiers="Shift" Command="ApplicationCommands.NotACommand" />
+                            <KeyBinding Key="V" Modifiers="Shift" Command="ApplicationCommands.NotACommand" />
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </DataTemplate>
             </ListView.ItemTemplate>
 

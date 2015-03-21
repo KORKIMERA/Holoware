@@ -15,7 +15,9 @@
     </UserControl.DataContext>
 
     <UserControl.InputBindings>
-        <KeyBinding Command="{Binding PrepareLayerCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding AddLayerCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding RemoveLayerCommand}" Key="R" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ViewLayerCommand}" Key="V" Modifiers="Shift" />
         <KeyBinding Command="{Binding UndoCommand}" Key="Z" Modifiers="Control" />
         <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
         <!--<KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />-->
