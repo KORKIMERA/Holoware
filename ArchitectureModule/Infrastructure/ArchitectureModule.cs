@@ -3,9 +3,9 @@ using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
 using MessageModule;
-using MessageModule.Messaging;
+using MessageModule;
 using System;
-using UIModule;
+using UXModule;
 
 namespace ArchitectureModule.Infrastructure
 {

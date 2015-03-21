@@ -1,4 +1,4 @@
-﻿namespace MessageModule.Messaging
+﻿namespace MessageModule
 {
     public class UXMessage
     {

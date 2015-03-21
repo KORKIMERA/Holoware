@@ -1,7 +1,7 @@
 ﻿using Bizmonger.Patterns;
-using MessageModule.Messaging;
+using MessageModule;
 using System.Windows;
-using UIModule;
+using UXModule;
 
 namespace Holoware
 {

@@ -1,4 +1,4 @@
-﻿namespace UIModule
+﻿namespace UXModule
 {
     public enum RegionId
     {

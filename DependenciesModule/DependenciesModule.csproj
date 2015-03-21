@@ -83,10 +83,6 @@
       <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
       <Name>Bizmonger.Patterns</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RepositoryModule\RepositoryModule.csproj">
-      <Project>{4b986e6a-1478-4587-bcb1-991bccb22019}</Project>
-      <Name>RepositoryModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

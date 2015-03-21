@@ -1,11 +1,11 @@
 ﻿using Bizmonger.Patterns;
 using Bizmonger.UILogic;
-using MessageModule.Messaging;
+using MessageModule;
 using System;
 using System.Windows.Controls;
 using UXModule;
 
-namespace UIModule
+namespace UXModule
 {
     public class UXServices
     {

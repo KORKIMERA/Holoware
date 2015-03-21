@@ -1,9 +1,9 @@
 ﻿using BaseModule;
 using Bizmonger.Patterns;
-using MessageModule.Messaging;
+using MessageModule;
 using ModulesModule.UI.Views;
 using System;
-using UIModule;
+using UXModule;
 
 namespace ModulesModule.Infrastructure
 {

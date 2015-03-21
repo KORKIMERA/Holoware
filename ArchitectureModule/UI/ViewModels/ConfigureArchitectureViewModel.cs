@@ -41,7 +41,7 @@ namespace ArchitectureModule.ViewModels
 
             LayerDefinitionCommand = new DelegateCommand(obj =>
                 {
-                    MessageBus.Instance.Publish(MessageModule.Messaging.UXMessage.REQUEST_LAYER_MODULES, SelectedLayer);
+                    MessageBus.Instance.Publish(MessageModule.UXMessage.REQUEST_LAYER_MODULES, SelectedLayer);
                 });
 
             _subscription.SubscribeFirstPublication(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>

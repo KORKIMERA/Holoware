@@ -1,5 +1,5 @@
 ﻿using Bizmonger.Patterns;
-using MessageModule.Messaging;
+using MessageModule;
 using System;
 
 namespace OrchestrationModule.ApplicationStates
