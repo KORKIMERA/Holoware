@@ -8,29 +8,29 @@ namespace CommandModule.Infrastructure
         static CommandLinePreprossor()
         {
             MessageBus.Instance.Subscribe(Messages.COMMAND_LINE_SUBMITTED, obj =>
-            {
-                var commandLine = obj as string;
-
-                if (string.IsNullOrWhiteSpace(commandLine))
                 {
-                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
-                }
+                    var commandLine = obj as string;
 
-                var rootCommand = commandLine.Split(' ').First().ToLower();
-                var handled = false;
-
-                MessageBus.Instance.SubscribeFirstPublication(Messages.COMMAND_LINE_HANDLER_FOUND, o =>
+                    if (string.IsNullOrWhiteSpace(commandLine))
                     {
-                        handled = true;
-                    });
+                        MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                    }
 
-                MessageBus.Instance.Publish(rootCommand, commandLine);
+                    var rootCommand = commandLine.Split(' ').First().ToLower();
+                    var handled = false;
 
-                if (!handled)
-                {
-                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
-                }
-            });
-        }
+                    MessageBus.Instance.SubscribeFirstPublication(Messages.COMMAND_LINE_HANDLER_FOUND, o =>
+                        {
+                            handled = true;
+                        });
+
+                    MessageBus.Instance.Publish(rootCommand, commandLine);
+
+                    if (!handled)
+                    {
+                        MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                    }
+                });
+            }
     }
 }

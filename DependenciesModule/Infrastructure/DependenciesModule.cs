@@ -37,14 +37,14 @@ namespace DependenciesModule.Infrastructure
             {
                 return new ArchitectureDependencies()
                 {
-                    Services = new ArchitectureServices()
+                    Services = ArchitectureServices.Instance
                 };
             }
             else
             {
                 return new ArchitectureDependencies()
                 {
-                    Services = new MockArchitectureServices()
+                    Services = MockArchitectureServices.Instance
                 };
             }
         }

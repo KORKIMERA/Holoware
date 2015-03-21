@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ArchitectureModule.Entities;
 using ArchitectureModule.Infrastructure;
 using ModuleModule.Entities;
+using System.Linq;
 
 namespace Holoware.TestAPI
 {
@@ -12,9 +13,33 @@ namespace Holoware.TestAPI
         List<Layer> _layers = new List<Layer>();
         #endregion
 
+        #region Singleton
+        static MockArchitectureServices _mockArchitectureServices = null;
+
+        private MockArchitectureServices() { }
+
+        public static MockArchitectureServices Instance
+        {
+            get
+            {
+                if (_mockArchitectureServices == null)
+                {
+                    _mockArchitectureServices = new MockArchitectureServices();
+                }
+
+                return _mockArchitectureServices;
+            }
+        }
+        #endregion
+
         public void AddLayer(Layer layer)
         {
             _layers.Add(layer);
+        }
+
+        public Layer GetLayer(string layerId)
+        {
+            return _layers.Where(l => l.Id == layerId).SingleOrDefault();
         }
 
         public void Initialize()
@@ -37,9 +62,14 @@ namespace Holoware.TestAPI
             throw new NotImplementedException();
         }
 
-        public void RemoveLayer(Layer layer)
+        public void RemoveLayer(string layerId)
         {
-            throw new NotImplementedException();
+            var layer = GetLayer(layerId);
+
+            if (layer != null)
+            {
+                _layers.Remove(layer);
+            }
         }
     }
 }

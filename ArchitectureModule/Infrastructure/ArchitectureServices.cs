@@ -11,7 +11,10 @@ namespace ArchitectureModule.Infrastructure
     {
         Subscription _subscription = new Subscription();
 
-        public ArchitectureServices()
+        #region Singleton
+        static ArchitectureServices _ArchitectureServices = null;
+
+        private ArchitectureServices()
         {
             _subscription.Subscribe(SystemMessage.REQUEST_BOOTSTRAP, (obj) =>
                 {
@@ -19,7 +22,26 @@ namespace ArchitectureModule.Infrastructure
                 });
         }
 
+        public static ArchitectureServices Instance
+        {
+            get
+            {
+                if (_ArchitectureServices == null)
+                {
+                    _ArchitectureServices = new ArchitectureServices();
+                }
+
+                return _ArchitectureServices;
+            }
+        }
+        #endregion
+
         public void AddLayer(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Layer GetLayer(string layerId)
         {
             throw new NotImplementedException();
         }
@@ -35,6 +57,11 @@ namespace ArchitectureModule.Infrastructure
         }
 
         public IEnumerable<Layer> LoadLayers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveLayer(string layerId)
         {
             throw new NotImplementedException();
         }

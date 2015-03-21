@@ -11,17 +11,30 @@ namespace ArchitectureModule.Commands
         const string REMOVE_LAYER_COMMAND_SHORT_TEXT = "rl";
         #endregion
 
-        public static void Execute(string line)
+        public void Execute(string line)
         {
             var isValidInstruction = BaseValidator.Validate(line, REMOVE_LAYER_COMMAND_FULL_TEXT, REMOVE_LAYER_COMMAND_SHORT_TEXT);
 
             if (!isValidInstruction)
             {
-                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+                MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
             }
             else
             {
-                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Succeeded);
+                var tokens = line.Split(' ');
+
+                var layerId = tokens[1];
+                var layer = _services.GetLayer(layerId);
+
+                if (layer == null)
+                {
+                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                }
+                else
+                {
+                    _services.RemoveLayer(layer.Id);
+                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Succeeded);
+                }
             }
         }
 

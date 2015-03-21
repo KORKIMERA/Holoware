@@ -10,6 +10,7 @@ namespace ArchitectureModule.Infrastructure
         Architecture LoadArchitecture();
         IEnumerable<Layer> LoadLayers();
         void AddLayer(Layer layer);
-        void RemoveLayer(Layer layer);
+        void RemoveLayer(string layerId);
+        Layer GetLayer(string layerId);
     }
 }

@@ -28,7 +28,7 @@ namespace ArchitectureModule.ViewModels
                     ConsoleLine = ConsoleLines.Last();
                     ConsoleLine.Status = CommandStatus.None;
 
-                    _subscription.SubscribeFirstPublication(Messages.COMMAND_LINE_PROCESSED, OnProcessed);
+                    _subscription.SubscribeFirstPublication(Messages.COMMAND_PROCESSED, OnProcessed);
 
                     MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
@@ -131,9 +131,9 @@ namespace ArchitectureModule.ViewModels
             ConsoleLines[ConsoleLines.Count - 1] = consoleLine;
         }
 
-        public void RemoveLayer(Layer layer)
+        public void RemoveLayer(string layerId)
         {
-            _services.RemoveLayer(layer);
+            _services.RemoveLayer(layerId);
         }
 
         #region Helpers
@@ -165,8 +165,6 @@ namespace ArchitectureModule.ViewModels
                     {
                         SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
                         Layers.Add(SelectedLayer);
-
-                        _services.AddLayer(SelectedLayer);
                         break;
                     }
 
@@ -177,12 +175,10 @@ namespace ArchitectureModule.ViewModels
 
                         if (SelectedLayer == null)
                         {
-                            MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+                            MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
                         }
 
                         Layers.Remove(SelectedLayer);
-
-                        _services.AddLayer(SelectedLayer);
                         break;
                     }
             }

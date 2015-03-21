@@ -24,11 +24,11 @@ namespace ArchitectureModule.Commands
 
             if (!isValidInstruction)
             {
-                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Failed);
+                MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
             }
             else
             {
-                MessageBus.Instance.Publish(Messages.COMMAND_LINE_PROCESSED, CommandStatus.Succeeded);
+                MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Succeeded);
             }
         }
 
