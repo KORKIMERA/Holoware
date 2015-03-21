@@ -24,7 +24,7 @@ namespace ArchitectureModule.Infrastructure
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+            MessageBus.Instance.Publish(UXMessage.REQUEST_ARCHITECTURE_MODULE_VIEWS);
         }
 
         #region Helpers

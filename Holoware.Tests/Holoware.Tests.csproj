@@ -108,6 +108,10 @@
       <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
       <Name>Bizmonger.Patterns</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserControlModule\Controls.csproj">
+      <Project>{0108dc69-dacc-4937-a6f0-7751da100818}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\HoloEditor\App.config">
