@@ -51,6 +51,10 @@
       <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
       <Name>BaseModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommandModule\CommandModule.csproj">
+      <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
+      <Name>CommandModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlobalMessages\Global.csproj">
       <Project>{6500a446-bd34-4639-a8e3-b7efef598b01}</Project>
       <Name>Global</Name>
@@ -59,13 +63,29 @@
       <Project>{e8eb2fc9-5d3b-49ce-94f5-617dafb36de2}</Project>
       <Name>Holoware.Test.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
+      <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
+      <Name>ModuleModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
+      <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
+      <Name>ModulesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
       <Name>MessageModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrchestrationModule\WorkflowOrchestrationModule.csproj">
+      <Project>{08701edc-0a55-4ef0-9e15-d373c54667eb}</Project>
+      <Name>WorkflowOrchestrationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Patterns\Bizmonger.Patterns.csproj">
       <Project>{d0463bca-3e04-4495-80f8-14032dd99e73}</Project>
       <Name>Bizmonger.Patterns</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryModule\RepositoryModule.csproj">
+      <Project>{4b986e6a-1478-4587-bcb1-991bccb22019}</Project>
+      <Name>RepositoryModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,8 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrchestrationModule;
 using OrchestrationModule.ApplicationStates;
-using Bizmonger.UILogic;
-using System.Windows.Controls;
+
+
 using Bizmonger.Patterns;
 
 namespace Holoware.Tests

@@ -1,10 +1,10 @@
 ﻿using Bizmonger.Patterns;
-using Bizmonger.UILogic;
+
 using Holoware.TestAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModulesModule.Infrastructure;
 using ModulesModule.ViewModels;
-using System.Windows.Controls;
+
 
 namespace Holoware.Tests
 {

@@ -2,14 +2,11 @@
 using ArchitectureModule.UI.Views;
 using ArchitectureModule.ViewModels;
 using Bizmonger.Patterns;
-using Bizmonger.UILogic;
 using CommandModule.Infrastructure;
-using HoloCoder;
 using Holoware.TestAPI;
 using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using System.Windows.Controls;
 
 namespace Holoware.Tests
 {
@@ -43,7 +40,8 @@ namespace Holoware.Tests
         public void add_layer()
         {
             // Setup
-            ModuleLoader.LoadModules();
+            var dependenciesModule = new DependenciesModule.Infrastructure.DependenciesModule();
+            dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
             var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
@@ -65,7 +63,8 @@ namespace Holoware.Tests
         public void add_layer_fails_with_invalid_parameters()
         {
             // Setup
-            ModuleLoader.LoadModules();
+            var dependenciesModule = new DependenciesModule.Infrastructure.DependenciesModule();
+            dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
             var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;

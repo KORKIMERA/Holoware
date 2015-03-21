@@ -1,8 +1,7 @@
 ﻿using Bizmonger.Patterns;
-using Bizmonger.UILogic;
 using MessageModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Windows.Controls;
+
 
 namespace HoloCoder.Tests
 {
@@ -20,7 +19,8 @@ namespace HoloCoder.Tests
         [TestMethod]
         public void bootstrap()
         {
-            ModuleLoader.LoadModules();
+            var dependenciesModule = new DependenciesModule.Infrastructure.DependenciesModule();
+            dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
         }
     }

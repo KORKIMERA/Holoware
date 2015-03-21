@@ -1,5 +1,4 @@
 ﻿using Bizmonger.Patterns;
-using HoloCoder;
 using MessageModule;
 using MessageModule.Messaging;
 using System.Windows;
@@ -23,7 +22,8 @@ namespace Holoware
 
             _subscription.Subscribe(UXMessage.ASSIGN_MAIN_REGION, obj => { FrontRegion.Content = obj as ContentControl; });
 
-            ModuleLoader.LoadModules();
+            var dependenciesModule = new DependenciesModule.Infrastructure.DependenciesModule();
+            dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
         }
     }

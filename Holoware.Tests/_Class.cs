@@ -1,15 +1,8 @@
 ﻿using Bizmonger.Patterns;
-using Bizmonger.UILogic;
 using ClassModule.Infrastructure;
 using ClassModule.ViewModels;
 using Holoware.TestAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Holoware.Tests
 {
