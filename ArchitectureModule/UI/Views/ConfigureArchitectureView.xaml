@@ -70,7 +70,15 @@
             <StackPanel>
                 <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
-                    Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
+                    Command="{Binding AddLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
+
+                <Button Style="{StaticResource ButtonStyle}" 
+                    Content="RemoveLayer     ( Shift+R )" 
+                    Command="{Binding RemoveLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
+                
+                <Button Style="{StaticResource ButtonStyle}" 
+                    Content="ViewLayer     ( Shift+V )" 
+                    Command="{Binding ViewLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
 
                 <Button x:Name="UndoButton" Style="{StaticResource ButtonStyle}" Visibility="Collapsed"
                 Content="Undo     Ctrl+Z" Command="{Binding UndoCommand}" />
@@ -91,7 +99,7 @@
                     <TextBlock Style="{StaticResource TextBoxStyle}" Text="{Binding Id}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
             <ListView.InputBindings>
                 <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
             </ListView.InputBindings>

@@ -3,7 +3,6 @@ using ArchitectureModule.Infrastructure;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
 using CommandModule.Infrastructure;
-using MessageModule;
 using ModuleModule.Entities;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,9 @@ namespace ArchitectureModule.ViewModels
 
         public ConfigureArchitectureViewModel()
         {
-            PrepareLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
+            AddLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
+            RemoveLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("RemoveLayer {0}", "value?")); });
+            ViewLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("ViewLayer {0}", "value?")); });
 
             ExecuteCommand = new DelegateCommand(obj =>
                 {
@@ -112,7 +113,10 @@ namespace ArchitectureModule.ViewModels
         #endregion
 
         #region Commands
-        public DelegateCommand PrepareLayerCommand { get; private set; }
+        public DelegateCommand AddLayerCommand { get; private set; }
+        public DelegateCommand RemoveLayerCommand { get; private set; }
+        public DelegateCommand ViewLayerCommand { get; private set; }
+
         public DelegateCommand ExecuteCommand { get; private set; }
 
         public DelegateCommand LayerDefinitionCommand { get; private set; }
