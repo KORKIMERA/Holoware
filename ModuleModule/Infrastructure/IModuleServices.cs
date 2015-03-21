@@ -1,15 +1,14 @@
 ﻿using BaseModule;
 using ModuleModule.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModuleModule.Infrastructure
 {
     public interface IModuleServices : IModule
     {
-        Module LoadModule();
+        void AddModule(Module module);
+        void RemoveModule(string moduleId);
+        IEnumerable<Module> LoadModules();
+        Module GetModule(string layerId);
     }
 }

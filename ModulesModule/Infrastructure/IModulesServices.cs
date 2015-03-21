@@ -1,10 +1,11 @@
 ﻿using BaseModule;
-using ModulesModule.Entities;
+using ModuleModule.Entities;
+using System.Collections.Generic;
 
 namespace ModulesModule.Infrastructure
 {
     public interface IModulesServices : IModule
     {
-        Modules LoadModules();
+        IEnumerable<Module> LoadModules();
     }
 }

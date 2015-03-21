@@ -45,6 +45,7 @@
     <Compile Include="Infrastructure\CommandLineStatus.cs" />
     <Compile Include="Infrastructure\ConsoleLine.cs" />
     <Compile Include="Infrastructure\Messages.cs" />
+    <Compile Include="Infrastructure\Validation\BaseValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,14 +9,29 @@ namespace ModuleModule.Infrastructure
 {
     public class ModuleServices : IModuleServices
     {
+        public void AddModule(Module module)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Module GetModule(string layerId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Initialize()
         {
             throw new NotImplementedException();
         }
 
-        public Module LoadModule()
+        public IEnumerable<Module> LoadModules()
         {
-            return null;
+            throw new NotImplementedException();
+        }
+
+        public void RemoveModule(string moduleId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

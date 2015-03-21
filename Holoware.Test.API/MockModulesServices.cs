@@ -1,7 +1,7 @@
 ﻿using System;
-using ModulesModule.Entities;
 using ModulesModule.Infrastructure;
 using ModuleModule.Entities;
+using System.Collections.Generic;
 
 namespace Holoware.TestAPI
 {
@@ -12,9 +12,9 @@ namespace Holoware.TestAPI
             throw new NotImplementedException();
         }
 
-        public Modules LoadModules()
+        public IEnumerable<Module> LoadModules()
         {
-            return new Modules()
+            return new List<Module>()
             {
                 new Module() { Id = "Module_1" },
                 new Module() { Id = "Module_2" },

@@ -14,9 +14,9 @@ namespace ModuleModule.ViewModels
         IModuleServices _services = null;
         #endregion
 
-        public Module LoadModule()
+        public IEnumerable<Module> LoadModule()
         {
-            return _services.LoadModule();
+            return _services.LoadModules();
         }
 
         public void Initialize(ModuleDependencies dependencies)

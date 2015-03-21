@@ -1,6 +1,6 @@
-﻿using ModulesModule.Entities;
+﻿using ModuleModule.Entities;
 using ModulesModule.Infrastructure;
-using System;
+using System.Collections.Generic;
 
 namespace ModulesModule.ViewModels
 {
@@ -10,7 +10,7 @@ namespace ModulesModule.ViewModels
         IModulesServices _services = null;
         #endregion
 
-        public Modules LoadModules()
+        public IEnumerable<Module> LoadModules()
         {
             return _services.LoadModules();
         }

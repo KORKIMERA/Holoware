@@ -1,6 +1,5 @@
 ﻿using Bizmonger.Patterns;
 using MessageModule;
-using MessageModule;
 using System.Windows;
 using System.Windows.Controls;
 using UXModule;

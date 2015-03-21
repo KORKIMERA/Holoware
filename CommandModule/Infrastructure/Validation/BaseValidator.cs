@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace ArchitectureModule.Commands.Validation
+namespace CommandModule.Infrastructure.Validation
 {
     public class BaseValidator
     {

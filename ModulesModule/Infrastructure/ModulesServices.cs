@@ -1,5 +1,5 @@
 ﻿using System;
-using ModulesModule.Entities;
+using System.Collections.Generic;
 using ModuleModule.Entities;
 
 namespace ModulesModule.Infrastructure
@@ -11,9 +11,9 @@ namespace ModulesModule.Infrastructure
             throw new NotImplementedException();
         }
 
-        public Modules LoadModules()
+        public IEnumerable<Module> LoadModules()
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

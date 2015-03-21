@@ -3,29 +3,24 @@ using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
 using MessageModule;
-using MessageModule;
-using System;
 using UXModule;
 
 namespace ArchitectureModule.Infrastructure
 {
     public class ArchitectureModule : IModule
     {
+        #region Members
         Subscription _subscription = new Subscription();
+        #endregion
 
         public ArchitectureModule()
         {
             InitializeSubscriptions();
-
             InitializeViews();
-            
             InitializeCommands();
         }
 
-        public void Initialize()
-        {
-            MessageBus.Instance.Publish(UXMessage.REQUEST_ARCHITECTURE_MODULE_VIEWS);
-        }
+        public void Initialize() { }
 
         #region Helpers
         private void InitializeSubscriptions()

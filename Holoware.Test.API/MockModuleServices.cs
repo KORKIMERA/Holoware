@@ -10,17 +10,29 @@ namespace Holoware.TestAPI
 {
     public class MockModuleServices : IModuleServices
     {
+        public void AddModule(Module module)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Module GetModule(string layerId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Initialize()
         {
             throw new NotImplementedException();
         }
 
-        public Module LoadModule()
+        public IEnumerable<Module> LoadModules()
         {
-            return new Module()
-            {
-                Id = "Module_1"
-            };
+            throw new NotImplementedException();
+        }
+
+        public void RemoveModule(string moduleId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

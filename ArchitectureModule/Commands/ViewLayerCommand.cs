@@ -1,7 +1,7 @@
 ﻿using CommandModule.Infrastructure;
 using Bizmonger.Patterns;
-using ArchitectureModule.Commands.Validation;
-using System;
+using CommandModule.Infrastructure.Validation;
+using ArchitectureModule.Infrastructure;
 
 namespace ArchitectureModule.Commands
 {
@@ -20,7 +20,7 @@ namespace ArchitectureModule.Commands
 
         public void Execute(string line)
         {
-            var isValidInstruction = BaseValidator.Validate(line, "viewlayer", "vl" );
+            var isValidInstruction = BaseValidator.Validate(line, VIEW_LAYER_COMMAND_FULL_TEXT, VIEW_LAYER_COMMAND_SHORT_TEXT);
 
             if (!isValidInstruction)
             {
