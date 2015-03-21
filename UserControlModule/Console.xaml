@@ -100,7 +100,7 @@
         <StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
-                    Command="{Binding PrepareLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
+                    Command="{Binding AddLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
 
             <Button x:Name="UndoButton" Style="{StaticResource ButtonStyle}" Visibility="Collapsed"
                 Content="Undo     Ctrl+Z" Command="{Binding UndoCommand}" />
