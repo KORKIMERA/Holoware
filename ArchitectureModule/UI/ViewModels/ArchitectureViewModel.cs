@@ -11,14 +11,14 @@ using System.Linq;
 
 namespace ArchitectureModule.ViewModels
 {
-    public class ConfigureArchitectureViewModel : ViewModelBase
+    public class ArchitectureViewModel : ViewModelBase
     {
         #region Members
         Subscription _subscription = new Subscription();
         IArchitectureServices _services = null;
         #endregion
 
-        public ConfigureArchitectureViewModel()
+        public ArchitectureViewModel()
         {
             AddLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
             RemoveLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("RemoveLayer {0}", "value?")); });

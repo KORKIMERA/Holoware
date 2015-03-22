@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ArchitectureModule.UI.Views.ConfigureArchitectureView"
+﻿<UserControl x:Class="ArchitectureModule.UI.Views.ArchitectureView"
              x:Name="UserControl"
              xmlns:usercontrols="clr-namespace:Controls;assembly=Controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -11,7 +11,7 @@
              d:DesignHeight="300" d:DesignWidth="600" Margin="20" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
 
     <UserControl.DataContext>
-        <viewModels:ConfigureArchitectureViewModel />
+        <viewModels:ArchitectureViewModel />
     </UserControl.DataContext>
 
     <UserControl.InputBindings>
@@ -24,13 +24,14 @@
     </UserControl.InputBindings>
 
     <UserControl.Resources>
+        <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>-->
 
-        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
-        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+        <ResourceDictionary Source="pack://application:,,,/UXModule;component/ResourceDictionary.xaml" />
 
-        <Style x:Key="ButtonStyle" TargetType="Button">
+        <!--<Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="35" />
-            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontSize" Value="10" />
             <Setter Property="Padding" Value="10,0" />
             <Setter Property="Opacity" Value=".33" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -53,7 +54,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
     </UserControl.Resources>
 
     <Grid Margin="5" >
@@ -77,7 +78,7 @@
                 <Button Style="{StaticResource ButtonStyle}" 
                     Content="RemoveLayer     ( Shift+R )" 
                     Command="{Binding RemoveLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
-                
+
                 <Button Style="{StaticResource ButtonStyle}" 
                     Content="ViewLayer     ( Shift+V )" 
                     Command="{Binding ViewLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />

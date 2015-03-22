@@ -5,9 +5,9 @@ namespace ModulesModule.UI.Views
     /// <summary>
     /// Interaction logic for Modules.xaml
     /// </summary>
-    public partial class ConfigureModulesView : UserControl
+    public partial class ModulesView : UserControl
     {
-        public ConfigureModulesView()
+        public ModulesView()
         {
             InitializeComponent();
         }

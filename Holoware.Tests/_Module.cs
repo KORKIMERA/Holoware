@@ -25,20 +25,5 @@ namespace Holoware.Tests
             ServiceLocator.Instance.Clear();
         }
         #endregion
-
-        [TestMethod]
-        public void load_module()
-        {
-            // Setup
-            var viewModel = new ModuleViewModel();
-            var dependencies = new ModuleDependencies() { Services = new MockModuleServices() };
-            viewModel.Initialize(dependencies);
-
-            // Test
-            var module = viewModel.LoadModule();
-
-            // Verify
-            Assert.IsTrue(module != null);
-        }
     }
 }

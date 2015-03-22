@@ -1,6 +1,4 @@
 ﻿using Bizmonger.Patterns;
-using CommandModule.Infrastructure;
-using MessageModule;
 using System.Configuration;
 using System.Windows.Controls;
 
@@ -9,9 +7,9 @@ namespace ArchitectureModule.UI.Views
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class ConfigureArchitectureView : UserControl
+    public partial class ArchitectureView : UserControl
     {
-        public ConfigureArchitectureView()
+        public ArchitectureView()
         {
             InitializeComponent();
 

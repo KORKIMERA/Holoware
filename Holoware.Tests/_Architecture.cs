@@ -44,8 +44,8 @@ namespace Holoware.Tests
             dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
-            var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
-            var viewModel = view.DataContext as ConfigureArchitectureViewModel;
+            var view = ServiceLocator.Instance[typeof(ArchitectureView)] as ArchitectureView;
+            var viewModel = view.DataContext as ArchitectureViewModel;
 
             viewModel.ConsoleLine.Content = "AddLayer UX";
 
@@ -67,8 +67,8 @@ namespace Holoware.Tests
             dependenciesModule.LoadModules();
             MessageBus.Instance.Publish(SystemMessage.REQUEST_BOOTSTRAP);
 
-            var view = ServiceLocator.Instance[typeof(ConfigureArchitectureView)] as ConfigureArchitectureView;
-            var viewModel = view.DataContext as ConfigureArchitectureViewModel;
+            var view = ServiceLocator.Instance[typeof(ArchitectureView)] as ArchitectureView;
+            var viewModel = view.DataContext as ArchitectureViewModel;
 
             viewModel.ConsoleLine.Content = "AddLayer UX Layer";
 

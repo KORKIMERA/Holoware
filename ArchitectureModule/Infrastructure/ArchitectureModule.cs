@@ -27,13 +27,12 @@ namespace ArchitectureModule.Infrastructure
         {
             _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, obj =>
                 {
-                    UXServices.Instance.LoadView(typeof(ConfigureArchitectureView), RegionId.MAIN);
+                    UXServices.Instance.LoadView(typeof(ArchitectureView), RegionId.MAIN);
                 });
         }
         private void InitializeViews()
         {
             UXServices.Instance.Register(typeof(ArchitectureView));
-            UXServices.Instance.Register(typeof(ConfigureArchitectureView));
             UXServices.Instance.Register(typeof(LoadArchitectureView));
         }
 

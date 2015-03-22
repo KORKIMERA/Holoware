@@ -2,6 +2,8 @@
 using Bizmonger.Patterns;
 using CommandModule.Infrastructure.Validation;
 using ArchitectureModule.Infrastructure;
+using ModulesModule.UI.Views;
+using UXModule;
 
 namespace ArchitectureModule.Commands
 {
@@ -28,6 +30,7 @@ namespace ArchitectureModule.Commands
             }
             else
             {
+                UXServices.Instance.LoadView(typeof(ModulesView), UXModule.RegionId.MAIN);
                 MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Succeeded);
             }
         }

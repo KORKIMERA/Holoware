@@ -29,12 +29,12 @@ namespace ModulesModule.Infrastructure
         {
             _subscription.Subscribe(UXMessage.REQUEST_LAYER_MODULES, obj =>
                 {
-                    UXServices.Instance.LoadView(typeof(ConfigureModulesView), RegionId.MAIN);
+                    UXServices.Instance.LoadView(typeof(ModulesView), RegionId.MAIN);
                 });
         }
         private void InitializeViews()
         {
-            UXServices.Instance.Register(typeof(ConfigureModulesView));
+            UXServices.Instance.Register(typeof(ModulesView));
         }
 
         private void InitializeCommands()
