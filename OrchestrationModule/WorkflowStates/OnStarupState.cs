@@ -1,5 +1,4 @@
 ﻿using Bizmonger.Patterns;
-using MessageModule;
 using System;
 
 namespace OrchestrationModule.ApplicationStates
@@ -8,7 +7,7 @@ namespace OrchestrationModule.ApplicationStates
     {
         public void Execute()
         {
-            MessageBus.Instance.Publish(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE);
+            MessageBus.Instance.Publish(Global.Messages.REQUEST_CONFIGURE_ARCHITECTURE);
         }
 
         public void Initialize()

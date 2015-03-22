@@ -2,7 +2,7 @@
 {
     public enum RegionId
     {
-        MAIN = 0,
+        CONTENT = 0,
         HORIZON,
         TEN_THIRTY,
         NINE_OCLOCK,

@@ -27,9 +27,9 @@ namespace ModulesModule.Infrastructure
         #region Helpers
         private void InitializeSubscriptions()
         {
-            _subscription.Subscribe(UXMessage.REQUEST_LAYER_MODULES, obj =>
+            _subscription.Subscribe(Global.Messages.REQUEST_MODULES_VIEW, obj =>
                 {
-                    UXServices.Instance.LoadView(typeof(ModulesView), RegionId.MAIN);
+                    UXServices.Instance.LoadView(typeof(ModulesView), RegionId.CONTENT);
                 });
         }
         private void InitializeViews()

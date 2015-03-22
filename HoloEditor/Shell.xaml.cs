@@ -19,7 +19,8 @@ namespace Holoware
         {
             InitializeComponent();
 
-            _subscription.Subscribe(UXMessage.ASSIGN_MAIN_REGION, obj => { FrontRegion.Content = obj as ContentControl; });
+            _subscription.Subscribe(UXMessage.NINE_OCLOCK_REGION, obj => { LeftRegion.Content = obj as ContentControl; });
+            _subscription.Subscribe(UXMessage.ASSIGN_CONTENT_REGION, obj => { ContentRegion.Content = obj as ContentControl; });
 
             var dependenciesModule = new DependenciesModule.Infrastructure.DependenciesModule();
             dependenciesModule.LoadModules();

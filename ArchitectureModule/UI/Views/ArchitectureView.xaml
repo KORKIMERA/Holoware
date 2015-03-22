@@ -92,7 +92,7 @@
             </StackPanel>
         </Expander>
 
-        <usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" Grid.Row="1" />
+        <!--<usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" Grid.Row="1" />-->
 
         <ListView Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" Background="Transparent" BorderThickness="0" 

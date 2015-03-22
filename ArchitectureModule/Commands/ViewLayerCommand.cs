@@ -2,8 +2,7 @@
 using Bizmonger.Patterns;
 using CommandModule.Infrastructure.Validation;
 using ArchitectureModule.Infrastructure;
-using ModulesModule.UI.Views;
-using UXModule;
+using System.Linq;
 
 namespace ArchitectureModule.Commands
 {
@@ -30,7 +29,8 @@ namespace ArchitectureModule.Commands
             }
             else
             {
-                UXServices.Instance.LoadView(typeof(ModulesView), UXModule.RegionId.MAIN);
+                var layer = line.Split(' ').Last();
+                MessageBus.Instance.Publish(Global.Messages.REQUEST_MODULES_VIEW, layer);
                 MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Succeeded);
             }
         }

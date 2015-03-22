@@ -2,6 +2,7 @@
 using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
+using Controls;
 using MessageModule;
 using UXModule;
 
@@ -25,9 +26,10 @@ namespace ArchitectureModule.Infrastructure
         #region Helpers
         private void InitializeSubscriptions()
         {
-            _subscription.Subscribe(UXMessage.REQUEST_CONFIGURE_ARCHITECTURE, obj =>
+            _subscription.Subscribe(Global.Messages.REQUEST_CONFIGURE_ARCHITECTURE, obj =>
                 {
-                    UXServices.Instance.LoadView(typeof(ArchitectureView), RegionId.MAIN);
+                    UXServices.Instance.LoadView(typeof(Console), RegionId.NINE_OCLOCK);
+                    UXServices.Instance.LoadView(typeof(ArchitectureView), RegionId.CONTENT);
                 });
         }
         private void InitializeViews()

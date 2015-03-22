@@ -51,6 +51,10 @@
       <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
       <Name>BaseModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GlobalMessages\Global.csproj">
+      <Project>{6500a446-bd34-4639-a8e3-b7efef598b01}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
       <Name>MessageModule</Name>

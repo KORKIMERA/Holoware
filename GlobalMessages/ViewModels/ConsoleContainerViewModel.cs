@@ -1,18 +1,16 @@
 ﻿using Bizmonger.UILogic;
 using CommandModule.Infrastructure;
-using ModuleModule.Entities;
-using ModulesModule.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ModulesModule.ViewModels
+namespace Global.ViewModels
 {
-    public class ModulesViewModel : ViewModelBase
+    public class ConsoleContainerViewModel : ViewModelBase
     {
-        #region Members
-        IModulesServices _services = null;
-        #endregion
-
         ObservableCollection<ConsoleLine> _consoleLines = new ObservableCollection<ConsoleLine>();
         public ObservableCollection<ConsoleLine> ConsoleLines
         {
@@ -39,16 +37,6 @@ namespace ModulesModule.ViewModels
                     OnPropertyChanged();
                 }
             }
-        }
-
-        public IEnumerable<Module> LoadModules()
-        {
-            return _services.LoadModules();
-        }
-
-        public void Initialize(ModulesDependencies dependencies)
-        {
-            _services = dependencies.Services;
         }
     }
 }

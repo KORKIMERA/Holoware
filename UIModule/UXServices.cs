@@ -42,9 +42,15 @@ namespace UXModule
 
             switch (regionId)
             {
-                case RegionId.MAIN:
+                case RegionId.CONTENT:
                     {
-                        MessageBus.Instance.Publish(UXMessage.ASSIGN_MAIN_REGION, view);
+                        MessageBus.Instance.Publish(UXMessage.ASSIGN_CONTENT_REGION, view);
+                        break;
+                    }
+
+                case RegionId.NINE_OCLOCK:
+                    {
+                        MessageBus.Instance.Publish(UXMessage.NINE_OCLOCK_REGION, view);
                         break;
                     }
 
