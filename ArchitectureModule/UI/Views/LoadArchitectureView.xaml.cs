@@ -22,10 +22,10 @@ namespace ArchitectureModule.UI.Views
 
             this.PreviewKeyUp += new KeyEventHandler(On_PreviewKeyUp);
 
-            _elements.Add(new ArchitectureModule.UI.Views.ArchitectureView());
-            _elements.Add(new ModulesModule.UI.Views.ModulesView());
-            _elements.Add(new ModuleModule.UI.Views.Module());
-            _elements.Add(new ClassModule.UI.Views.Editor());
+            //_elements.Add(new ArchitectureModule.UI.Views.ArchitectureView());
+            //_elements.Add(new ModulesModule.UI.Views.ModulesView());
+            //_elements.Add(new ModuleModule.UI.Views.Module());
+            //_elements.Add(new ClassModule.UI.Views.Editor());
 
             _enumerator = _elements.GetEnumerator();
             _enumerator.MoveNext();

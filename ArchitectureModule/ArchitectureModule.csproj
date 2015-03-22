@@ -48,8 +48,6 @@
     <Compile Include="Commands\RemoveLayerCommand.cs" />
     <Compile Include="Commands\AddLayerCommand.cs" />
     <Compile Include="Commands\ViewLayerCommand.cs" />
-    <Compile Include="Entities\Architecture.cs" />
-    <Compile Include="Entities\Layer.cs" />
     <Compile Include="Infrastructure\ArchitectureModule.cs" />
     <Compile Include="Infrastructure\ArchitectureServices.cs" />
     <Compile Include="Infrastructure\ArchitectureDependencies.cs" />
@@ -71,25 +69,17 @@
       <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
       <Name>BaseModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClassModule\ClassModule.csproj">
-      <Project>{b50488e8-212b-4774-bb96-f40013933915}</Project>
-      <Name>ClassModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CommandModule\CommandModule.csproj">
       <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
       <Name>CommandModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntitiesModule\EntitiesModule.csproj">
+      <Project>{9ddc231f-bf94-456e-a473-e67c5d9e1760}</Project>
+      <Name>EntitiesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlobalMessages\Global.csproj">
       <Project>{6500a446-bd34-4639-a8e3-b7efef598b01}</Project>
       <Name>Global</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
-      <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
-      <Name>ModuleModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
-      <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
-      <Name>ModulesModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>

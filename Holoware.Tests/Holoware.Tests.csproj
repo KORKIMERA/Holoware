@@ -80,6 +80,10 @@
       <Project>{6f485675-662b-42f2-ab5d-01a3171da056}</Project>
       <Name>DependenciesModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntitiesModule\EntitiesModule.csproj">
+      <Project>{9ddc231f-bf94-456e-a473-e67c5d9e1760}</Project>
+      <Name>EntitiesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HoloEditor\Holoware.csproj">
       <Project>{ced68376-b2af-4dff-b83d-f082d4d1cecc}</Project>
       <Name>Holoware</Name>

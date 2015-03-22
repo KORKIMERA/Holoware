@@ -66,6 +66,10 @@
       <Project>{63923f41-c366-46a5-bc14-fe974e971898}</Project>
       <Name>CommandModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntitiesModule\EntitiesModule.csproj">
+      <Project>{9ddc231f-bf94-456e-a473-e67c5d9e1760}</Project>
+      <Name>EntitiesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlobalMessages\Global.csproj">
       <Project>{6500a446-bd34-4639-a8e3-b7efef598b01}</Project>
       <Name>Global</Name>
@@ -95,9 +99,7 @@
       <Name>Controls</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="UI\Views\ModulesView.xaml">
       <Generator>MSBuild:Compile</Generator>

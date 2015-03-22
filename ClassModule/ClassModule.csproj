@@ -43,7 +43,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Class.cs" />
     <Compile Include="Infrastructure\ClassDependencies.cs" />
     <Compile Include="Infrastructure\ClassServices.cs" />
     <Compile Include="Infrastructure\IClassServices.cs" />
@@ -63,6 +62,10 @@
     <ProjectReference Include="..\BaseModule\BaseModule.csproj">
       <Project>{622f1bf8-dd0b-434a-a904-57266600062b}</Project>
       <Name>BaseModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesModule\EntitiesModule.csproj">
+      <Project>{9ddc231f-bf94-456e-a473-e67c5d9e1760}</Project>
+      <Name>EntitiesModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
