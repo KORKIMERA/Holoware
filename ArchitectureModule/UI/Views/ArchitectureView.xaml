@@ -1,6 +1,5 @@
 ﻿<UserControl x:Class="ArchitectureModule.UI.Views.ArchitectureView"
              x:Name="UserControl"
-             xmlns:usercontrols="clr-namespace:Controls;assembly=Controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -70,7 +69,7 @@
         </Grid.ColumnDefinitions>
 
         <Expander Grid.Row="0" Grid.Column="0" ExpandDirection="Right">
-            <StackPanel>
+            <!--<StackPanel>
                 <Button x:Name="PrepareButton" Style="{StaticResource ButtonStyle}" 
                     Content="AddLayer     ( Shift+A )" 
                     Command="{Binding AddLayerCommand}" CommandParameter="{Binding ConsoleLine}"  />
@@ -89,7 +88,7 @@
                 <Button x:Name="RedoButton" Style="{StaticResource ButtonStyle}" Visibility="Collapsed"
                 Content="Redo     Ctrl+Y" Command="{Binding UndoCommand}" />
 
-            </StackPanel>
+            </StackPanel>-->
         </Expander>
 
         <!--<usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" Grid.Row="1" />-->

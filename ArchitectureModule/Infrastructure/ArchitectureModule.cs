@@ -2,8 +2,6 @@
 using ArchitectureModule.UI.Views;
 using BaseModule;
 using Bizmonger.Patterns;
-using Controls;
-using MessageModule;
 using UXModule;
 
 namespace ArchitectureModule.Infrastructure
@@ -28,12 +26,13 @@ namespace ArchitectureModule.Infrastructure
         {
             _subscription.Subscribe(Global.Messages.REQUEST_CONFIGURE_ARCHITECTURE, obj =>
                 {
-                    UXServices.Instance.LoadView(typeof(Console), RegionId.NINE_OCLOCK);
+                    UXServices.Instance.LoadView(typeof(ArchitectureConsole), RegionId.NINE_OCLOCK);
                     UXServices.Instance.LoadView(typeof(ArchitectureView), RegionId.CONTENT);
                 });
         }
         private void InitializeViews()
         {
+            UXServices.Instance.Register(typeof(ArchitectureConsole));
             UXServices.Instance.Register(typeof(ArchitectureView));
             UXServices.Instance.Register(typeof(LoadArchitectureView));
         }

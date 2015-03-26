@@ -13,103 +13,105 @@ namespace ArchitectureModule.ViewModels
 {
     public class ArchitectureViewModel : ViewModelBase
     {
-        #region Members
-        Subscription _subscription = new Subscription();
-        IArchitectureServices _services = null;
-        #endregion
+        //#region Members
+        //Subscription _subscription = new Subscription();
+        //IArchitectureServices _services = null;
+        //#endregion
 
         public ArchitectureViewModel()
         {
-            AddLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("AddLayer {0}", "value?")); });
-            RemoveLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("RemoveLayer {0}", "value?")); });
-            ViewLayerCommand = new DelegateCommand(obj => { PrepareLayer(string.Format("ViewLayer {0}", "value?")); });
+            //AddLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("AddLayer {0}", "value?")); });
+            //RemoveLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("RemoveLayer {0}", "value?")); });
+            //ViewLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("ViewLayer {0}", "value?")); });
 
-            ExecuteCommand = new DelegateCommand(obj =>
-                {
-                    ConsoleLine = ConsoleLines.Last();
-                    ConsoleLine.Status = CommandStatus.None;
+        //    ExecuteCommand = new DelegateCommand(obj =>
+        //        {
+        //            ConsoleLine = ConsoleLines.Last();
+        //            ConsoleLine.Status = CommandStatus.None;
 
-                    _subscription.SubscribeFirstPublication(Messages.COMMAND_PROCESSED, OnProcessed);
+        //            _subscription.SubscribeFirstPublication(Messages.COMMAND_PROCESSED, OnProcessed);
 
-                    MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
-                });
+        //            MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
+        //        });
 
-            UndoCommand = new DelegateCommand(obj =>
-                {
-                    Undo();
-                });
+        //    UndoCommand = new DelegateCommand(obj =>
+        //        {
+        //            Undo();
+        //        });
 
-            LayerDefinitionCommand = new DelegateCommand(obj =>
-                {
-                    MessageBus.Instance.Publish(Global.Messages.REQUEST_MODULES_VIEW, SelectedLayer);
-                });
+        //    LayerDefinitionCommand = new DelegateCommand(obj =>
+        //        {
+        //            MessageBus.Instance.Publish(Global.Messages.REQUEST_MODULES_VIEW, SelectedLayer);
+        //        });
 
-            _subscription.SubscribeFirstPublication(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
-                {
-                    var dependencies = obj as ArchitectureDependencies;
-                    _services = dependencies.Services;
-                });
+        //    _subscription.SubscribeFirstPublication(Global.Messages.REQUEST_ARCHITECTURE_DEPENDENCIES_COMPLETED, obj =>
+        //        {
+        //            var dependencies = obj as ArchitectureDependencies;
+        //            _services = dependencies.Services;
+        //        });
 
-            ConsoleLine = new ConsoleLine();
-            ConsoleLines.Add(ConsoleLine);
+        //    _subscription.Subscribe(Global.Messages.REQUEST_ARCHITECTURE_VIEWMODEL, obj => MessageBus.Instance.Publish(Global.Messages.REQUEST_ARCHITECTURE_VIEWMODEL_COMPLETED, this));
+
+        //    ConsoleLine = new ConsoleLine();
+        //    ConsoleLines.Add(ConsoleLine);
         }
 
         #region Properties
-        ObservableCollection<ConsoleLine> _consoleLines = new ObservableCollection<ConsoleLine>();
-        public ObservableCollection<ConsoleLine> ConsoleLines
-        {
-            get { return _consoleLines; }
-            set
-            {
-                if (_consoleLines != value)
-                {
-                    _consoleLines = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        //ObservableCollection<ConsoleLine> _consoleLines = new ObservableCollection<ConsoleLine>();
+        //public ObservableCollection<ConsoleLine> ConsoleLines
+        //{
+        //    get { return _consoleLines; }
+        //    set
+        //    {
+        //        if (_consoleLines != value)
+        //        {
+        //            _consoleLines = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
 
-        ConsoleLine _consoleLine = null;
-        public ConsoleLine ConsoleLine
-        {
-            get { return _consoleLine; }
-            set
-            {
-                if (_consoleLine != value)
-                {
-                    _consoleLine = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        //ConsoleLine _consoleLine = null;
+        //public ConsoleLine ConsoleLine
+        //{
+        //    get { return _consoleLine; }
+        //    set
+        //    {
+        //        if (_consoleLine != value)
+        //        {
+        //            _consoleLine = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
 
-        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
-        public ObservableCollection<Layer> Layers
-        {
-            get { return _layers; }
-            set
-            {
-                if (_layers != value)
-                {
-                    _layers = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        //ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
+        //public ObservableCollection<Layer> Layers
+        //{
+        //    get { return _layers; }
+        //    set
+        //    {
+        //        if (_layers != value)
+        //        {
+        //            _layers = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
 
-        Layer _selectedLayer = null;
-        public Layer SelectedLayer
-        {
-            get { return _selectedLayer; }
-            set
-            {
-                if (_selectedLayer != value)
-                {
-                    _selectedLayer = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        //Layer _selectedLayer = null;
+        //public Layer SelectedLayer
+        //{
+        //    get { return _selectedLayer; }
+        //    set
+        //    {
+        //        if (_selectedLayer != value)
+        //        {
+        //            _selectedLayer = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
         #endregion
 
         #region Commands
@@ -124,69 +126,69 @@ namespace ArchitectureModule.ViewModels
         public DelegateCommand UndoCommand { get; private set; }
         #endregion
 
-        public IEnumerable<Layer> LoadLayers()
-        {
-            return _services.LoadLayers();
-        }
+        //public IEnumerable<Layer> LoadLayers()
+        //{
+        //    return _services.LoadLayers();
+        //}
 
-        public void PrepareLayer(string commandText)
-        {
-            var consoleLine = new ConsoleLine() { Content = commandText };
-            ConsoleLines[ConsoleLines.Count - 1] = consoleLine;
-        }
+        //public void PrepareCommand(string commandText)
+        //{
+        //    var consoleLine = new ConsoleLine() { Content = commandText };
+        //    ConsoleLines[ConsoleLines.Count - 1] = consoleLine;
+        //}
 
-        public void RemoveLayer(string layerId)
-        {
-            _services.RemoveLayer(layerId);
-        }
+        //public void RemoveLayer(string layerId)
+        //{
+        //    _services.RemoveLayer(layerId);
+        //}
 
         #region Helpers
-        private void OnProcessed(object obj)
-        {
-            ConsoleLine.Status = (CommandStatus)obj;
+        //private void OnProcessed(object obj)
+        //{
+        //    ConsoleLine.Status = (CommandStatus)obj;
 
-            if (ConsoleLine.Status == CommandStatus.Succeeded)
-            {
-                UpdateUI();
+        //    if (ConsoleLine.Status == CommandStatus.Succeeded)
+        //    {
+        //        UpdateUI();
 
-                ConsoleLine = new ConsoleLine();
-                ConsoleLines.Add(ConsoleLine);
-            }
-        }
+        //        ConsoleLine = new ConsoleLine();
+        //        ConsoleLines.Add(ConsoleLine);
+        //    }
+        //}
 
-        private void UpdateUI()
-        {
-            var tokens = ConsoleLine.Content.Split(' ');
+        //private void UpdateUI()
+        //{
+        //    var tokens = ConsoleLine.Content.Split(' ');
 
-            var line = ConsoleLine.Content;
-            var layerName = line.Remove(line.IndexOf(tokens.First()), tokens.First().Length).Trim();
-            var rootCommand = tokens.First().ToLower();
+        //    var line = ConsoleLine.Content;
+        //    var layerName = line.Remove(line.IndexOf(tokens.First()), tokens.First().Length).Trim();
+        //    var rootCommand = tokens.First().ToLower();
 
-            switch (rootCommand)
-            {
-                case "al":
-                case "addlayer":
-                    {
-                        SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
-                        Layers.Add(SelectedLayer);
-                        break;
-                    }
+        //    switch (rootCommand)
+        //    {
+        //        case "al":
+        //        case "addlayer":
+        //            {
+        //                SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
+        //                Layers.Add(SelectedLayer);
+        //                break;
+        //            }
 
-                case "rl":
-                case "removelayer":
-                    {
-                        SelectedLayer = Layers.Where(l => l.Id == layerName).SingleOrDefault();
+        //        case "rl":
+        //        case "removelayer":
+        //            {
+        //                SelectedLayer = Layers.Where(l => l.Id == layerName).SingleOrDefault();
 
-                        if (SelectedLayer == null)
-                        {
-                            MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
-                        }
+        //                if (SelectedLayer == null)
+        //                {
+        //                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+        //                }
 
-                        Layers.Remove(SelectedLayer);
-                        break;
-                    }
-            }
-        }
+        //                Layers.Remove(SelectedLayer);
+        //                break;
+        //            }
+        //    }
+        //}
 
         private void Undo()
         {

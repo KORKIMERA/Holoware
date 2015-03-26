@@ -55,10 +55,14 @@
     <Compile Include="Infrastructure\IArchitectureServices.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ViewModels\ArchitectureConsoleViewModel.cs" />
     <Compile Include="UI\ViewModels\LoadArchitectureViewModel.cs" />
     <Compile Include="UI\ViewModels\ArchitectureViewModel.cs" />
     <Compile Include="UI\Views\ArchitectureView.xaml.cs">
       <DependentUpon>ArchitectureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ArchitectureConsole.xaml.cs">
+      <DependentUpon>ArchitectureConsole.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Views\LoadArchitectureView.xaml.cs">
       <DependentUpon>LoadArchitectureView.xaml</DependentUpon>
@@ -106,6 +110,10 @@
     <Page Include="UI\Views\ArchitectureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\ArchitectureConsole.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Views\LoadArchitectureView.xaml">
       <SubType>Designer</SubType>
