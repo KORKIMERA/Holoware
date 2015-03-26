@@ -85,33 +85,33 @@ namespace ArchitectureModule.ViewModels
         //    }
         //}
 
-        //ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
-        //public ObservableCollection<Layer> Layers
-        //{
-        //    get { return _layers; }
-        //    set
-        //    {
-        //        if (_layers != value)
-        //        {
-        //            _layers = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
+        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
+        public ObservableCollection<Layer> Layers
+        {
+            get { return _layers; }
+            set
+            {
+                if (_layers != value)
+                {
+                    _layers = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
-        //Layer _selectedLayer = null;
-        //public Layer SelectedLayer
-        //{
-        //    get { return _selectedLayer; }
-        //    set
-        //    {
-        //        if (_selectedLayer != value)
-        //        {
-        //            _selectedLayer = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
+        Layer _selectedLayer = null;
+        public Layer SelectedLayer
+        {
+            get { return _selectedLayer; }
+            set
+            {
+                if (_selectedLayer != value)
+                {
+                    _selectedLayer = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         #endregion
 
         #region Commands

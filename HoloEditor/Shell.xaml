@@ -10,12 +10,12 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         
-        <ContentControl x:Name="LeftRegion" Grid.Column="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" ClipToBounds="True" />
-        <ContentControl x:Name="ContentRegion" Grid.Column="1" VerticalAlignment="Top" VerticalContentAlignment="Stretch" ClipToBounds="True" />
+        <ContentControl x:Name="LeftRegion" Grid.Column="0" VerticalAlignment="Stretch" VerticalContentAlignment="Top" ClipToBounds="True" />
+        <ContentControl x:Name="ContentRegion" Grid.Column="1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" ClipToBounds="True" />
         
     </Grid>
 </Window>
