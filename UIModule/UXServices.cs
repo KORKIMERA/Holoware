@@ -1,9 +1,6 @@
 ﻿using Bizmonger.Patterns;
-using Bizmonger.UILogic;
 using MessageModule;
 using System;
-using System.Windows.Controls;
-using UXModule;
 
 namespace UXModule
 {
