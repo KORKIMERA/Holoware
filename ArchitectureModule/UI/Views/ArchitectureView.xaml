@@ -36,7 +36,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
-        </Style>
+        </Style>-->
 
         <Style x:Key="TextBoxStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="60" />
@@ -52,7 +52,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
     </UserControl.Resources>
 
     <Grid Margin="5" >

@@ -14,6 +14,8 @@ namespace ArchitectureModule.Commands
 
         public void Execute(string line)
         {
+            MessageBus.Instance.Publish(Messages.COMMAND_LINE_HANDLER_FOUND);
+
             var isValidInstruction = BaseValidator.Validate(line, REMOVE_LAYER_COMMAND_FULL_TEXT, REMOVE_LAYER_COMMAND_SHORT_TEXT);
 
             if (!isValidInstruction)
