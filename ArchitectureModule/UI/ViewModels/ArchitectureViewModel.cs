@@ -17,7 +17,7 @@ namespace ArchitectureModule.ViewModels
 
         public ArchitectureViewModel()
         {
-            _subscription.SubscribeFirstPublication(Messages.COMMAND_PROCESSED, OnProcessed);
+            _subscription.Subscribe(Messages.COMMAND_PROCESSED, OnProcessed);
         }
 
         #region Properties
