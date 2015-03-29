@@ -3,7 +3,6 @@ using ArchitectureModule.Infrastructure;
 using Bizmonger.Patterns;
 using Bizmonger.UILogic;
 using CommandModule.Infrastructure;
-using ModuleModule.Entities;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -31,11 +30,6 @@ namespace ArchitectureModule.UI.ViewModels
 
                     MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
-
-            //UndoCommand = new DelegateCommand(obj =>
-            //    {
-            //        Undo();
-            //    });
 
             LayerDefinitionCommand = new DelegateCommand(obj =>
                 {
@@ -83,20 +77,6 @@ namespace ArchitectureModule.UI.ViewModels
             }
         }
 
-        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
-        public ObservableCollection<Layer> Layers
-        {
-            get { return _layers; }
-            set
-            {
-                if (_layers != value)
-                {
-                    _layers = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         Layer _selectedLayer = null;
         public Layer SelectedLayer
         {
@@ -133,48 +113,12 @@ namespace ArchitectureModule.UI.ViewModels
         #region Helpers
         private void OnProcessed(object obj)
         {
-            ConsoleLine.Status = (CommandStatus)obj;
+            var commandContext = obj as CommandContext;
 
-            if (ConsoleLine.Status == CommandStatus.Succeeded)
+            if (commandContext.Status == CommandStatus.Succeeded)
             {
-                UpdateUI();
-
                 ConsoleLine = new ConsoleLine();
                 ConsoleLines.Add(ConsoleLine);
-            }
-        }
-
-        private void UpdateUI()
-        {
-            var tokens = ConsoleLine.Content.Split(' ');
-
-            var line = ConsoleLine.Content;
-            var layerName = line.Remove(line.IndexOf(tokens.First()), tokens.First().Length).Trim();
-            var rootCommand = tokens.First().ToLower();
-
-            switch (rootCommand)
-            {
-                case "al":
-                case "addlayer":
-                    {
-                        SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
-                        Layers.Add(SelectedLayer);
-                        break;
-                    }
-
-                case "rl":
-                case "removelayer":
-                    {
-                        SelectedLayer = Layers.Where(l => l.Id == layerName).SingleOrDefault();
-
-                        if (SelectedLayer == null)
-                        {
-                            MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
-                        }
-
-                        Layers.Remove(SelectedLayer);
-                        break;
-                    }
             }
         }
         #endregion

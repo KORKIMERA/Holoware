@@ -28,9 +28,9 @@ namespace CommandModule.Infrastructure
 
                     if (!handled)
                     {
-                        MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                        MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, new CommandContext() { Line = commandLine, Status = CommandStatus.Failed });
                     }
                 });
-            }
+        }
     }
 }

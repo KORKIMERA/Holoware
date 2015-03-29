@@ -41,8 +41,9 @@
   <ItemGroup>
     <Compile Include="Infrastructure\CommandModule.cs" />
     <Compile Include="Infrastructure\CommandPreprossor.cs" />
+    <Compile Include="Infrastructure\CommandContext.cs" />
     <Compile Include="Infrastructure\CommandTemplate.cs" />
-    <Compile Include="Infrastructure\CommandLineStatus.cs" />
+    <Compile Include="Infrastructure\CommandStatus.cs" />
     <Compile Include="Infrastructure\ConsoleLine.cs" />
     <Compile Include="Infrastructure\Messages.cs" />
     <Compile Include="Infrastructure\Validation\BaseValidator.cs" />

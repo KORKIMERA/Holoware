@@ -7,10 +7,18 @@
              xmlns:viewModels="clr-namespace:ArchitectureModule.UI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddLayerCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding RemoveLayerCommand}" Key="R" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ViewLayerCommand}" Key="V" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
+        <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
+    </UserControl.InputBindings>
+
     <UserControl.DataContext>
         <viewModels:ArchitectureConsoleViewModel />
     </UserControl.DataContext>
-    
+
     <usercontrols:Console ConsoleLinesSource="{Binding ConsoleLines}" Grid.Row="1" />
 </UserControl>
