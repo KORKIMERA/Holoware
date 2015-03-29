@@ -81,10 +81,10 @@
 
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Status}" Value="{x:Static commandInfrastructure:CommandStatus.Succeeded}">
-                    <DataTrigger.EnterActions>
+                    <!--<DataTrigger.EnterActions>
                         <BeginStoryboard Storyboard="{StaticResource CommandSucessfulStory}"/>
-                    </DataTrigger.EnterActions>
-                    <!--<Setter Property="Foreground" Value="LightGray" />-->
+                    </DataTrigger.EnterActions>-->
+                    <Setter Property="Foreground" Value="LightGray" />
                 </DataTrigger>
 
                 <DataTrigger Binding="{Binding Status}" Value="{x:Static commandInfrastructure:CommandStatus.Failed}">

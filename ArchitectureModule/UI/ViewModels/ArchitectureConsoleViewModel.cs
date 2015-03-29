@@ -114,12 +114,18 @@ namespace ArchitectureModule.UI.ViewModels
         private void OnProcessed(object obj)
         {
             var commandContext = obj as CommandContext;
-            ConsoleLine.Status = commandContext.Status;
-
+            
             if (commandContext.Status == CommandStatus.Succeeded)
             {
+                var currentConsoleLine = ConsoleLine;
+                currentConsoleLine.Status = commandContext.Status;
+
                 ConsoleLine = new ConsoleLine();
                 ConsoleLines.Add(ConsoleLine);
+            }
+            else
+            {
+                ConsoleLines.Last().Status = CommandStatus.Failed;
             }
         }
         #endregion
