@@ -20,7 +20,7 @@ namespace ArchitectureModule.Commands
 
             if (!isValidInstruction)
             {
-                MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, new CommandContext() { Line = line, Status = CommandStatus.Failed });
             }
             else
             {
@@ -31,12 +31,12 @@ namespace ArchitectureModule.Commands
 
                 if (layer == null)
                 {
-                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Failed);
+                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, new CommandContext() { Line = line, Status = CommandStatus.Failed });
                 }
                 else
                 {
                     _services.RemoveLayer(layer.Id);
-                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, CommandStatus.Succeeded);
+                    MessageBus.Instance.Publish(Messages.COMMAND_PROCESSED, new CommandContext() { Line = line, Status = CommandStatus.Succeeded });
                 }
             }
         }
