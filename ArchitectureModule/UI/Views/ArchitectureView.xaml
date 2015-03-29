@@ -25,7 +25,7 @@
         <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
         <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>-->
 
-        <ResourceDictionary Source="pack://application:,,,/UXModule;component/ResourceDictionary.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/UXModule;component/ResourceDictionary.xaml" />-->
 
         <!--<Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="35" />

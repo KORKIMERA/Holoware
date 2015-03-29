@@ -114,6 +114,7 @@ namespace ArchitectureModule.UI.ViewModels
         private void OnProcessed(object obj)
         {
             var commandContext = obj as CommandContext;
+            ConsoleLine.Status = commandContext.Status;
 
             if (commandContext.Status == CommandStatus.Succeeded)
             {
