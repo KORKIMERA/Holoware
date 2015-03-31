@@ -9,8 +9,8 @@ namespace ArchitectureModule.Infrastructure
     {
         Architecture LoadArchitecture();
         IEnumerable<Layer> LoadLayers();
-        void AddLayer(Layer layer);
-        void RemoveLayer(string layerId);
-        Layer GetLayer(string layerId);
+        void AddModule(Layer module);
+        void RemoveModule(string moduleId);
+        Layer GetLayer(string moduleId);
     }
 }

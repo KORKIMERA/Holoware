@@ -39,17 +39,17 @@ namespace ArchitectureModule.Infrastructure
 
         private void InitializeCommands()
         {
-            var addLayerCommand = new AddLayerCommand();
-            addLayerCommand.Initialize();
-            ServiceLocator.Instance.Load(typeof(AddLayerCommand), addLayerCommand);
+            var addModuleCommand = new AddModuleCommand();
+            addModuleCommand.Initialize();
+            ServiceLocator.Instance.Load(typeof(AddModuleCommand), addModuleCommand);
 
-            var viewLayerCommand = new ViewLayerCommand();
-            viewLayerCommand.Initialize();
-            ServiceLocator.Instance.Load(typeof(ViewLayerCommand), addLayerCommand);
+            var viewModuleCommand = new ViewModuleCommand();
+            viewModuleCommand.Initialize();
+            ServiceLocator.Instance.Load(typeof(ViewModuleCommand), addModuleCommand);
 
-            var removeLayerCommand = new RemoveLayerCommand();
-            removeLayerCommand.Initialize();
-            ServiceLocator.Instance.Load(typeof(RemoveLayerCommand), addLayerCommand);
+            var removeModuleCommand = new RemoveModuleCommand();
+            removeModuleCommand.Initialize();
+            ServiceLocator.Instance.Load(typeof(RemoveModuleCommand), addModuleCommand);
         }
         #endregion
     }

@@ -17,9 +17,9 @@ namespace ArchitectureModule.UI.ViewModels
 
         public ArchitectureConsoleViewModel()
         {
-            AddLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("AddLayer {0}", "value?")); });
-            RemoveLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("RemoveLayer {0}", "value?")); });
-            ViewLayerCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("ViewLayer {0}", "value?")); });
+            AddModuleCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("AddModule {0}", "value?")); });
+            RemoveModuleCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("RemoveModule {0}", "value?")); });
+            ViewModuleCommand = new DelegateCommand(obj => { PrepareCommand(string.Format("ViewModule {0}", "value?")); });
 
             ExecuteCommand = new DelegateCommand(obj =>
                 {
@@ -31,7 +31,7 @@ namespace ArchitectureModule.UI.ViewModels
                     MessageBus.Instance.Publish(Messages.COMMAND_LINE_SUBMITTED, ConsoleLine.Content);
                 });
 
-            LayerDefinitionCommand = new DelegateCommand(obj =>
+            ModuleDefinitionCommand = new DelegateCommand(obj =>
                 {
                     MessageBus.Instance.Publish(Global.Messages.REQUEST_MODULES_VIEW, SelectedLayer);
                 });
@@ -77,15 +77,15 @@ namespace ArchitectureModule.UI.ViewModels
             }
         }
 
-        Layer _selectedLayer = null;
+        Layer _selectedModule = null;
         public Layer SelectedLayer
         {
-            get { return _selectedLayer; }
+            get { return _selectedModule; }
             set
             {
-                if (_selectedLayer != value)
+                if (_selectedModule != value)
                 {
-                    _selectedLayer = value;
+                    _selectedModule = value;
                     OnPropertyChanged();
                 }
             }
@@ -93,13 +93,13 @@ namespace ArchitectureModule.UI.ViewModels
         #endregion
 
         #region Commands
-        public DelegateCommand AddLayerCommand { get; private set; }
-        public DelegateCommand RemoveLayerCommand { get; private set; }
-        public DelegateCommand ViewLayerCommand { get; private set; }
+        public DelegateCommand AddModuleCommand { get; private set; }
+        public DelegateCommand RemoveModuleCommand { get; private set; }
+        public DelegateCommand ViewModuleCommand { get; private set; }
 
         public DelegateCommand ExecuteCommand { get; private set; }
 
-        public DelegateCommand LayerDefinitionCommand { get; private set; }
+        public DelegateCommand ModuleDefinitionCommand { get; private set; }
 
         public DelegateCommand UndoCommand { get; private set; }
         #endregion

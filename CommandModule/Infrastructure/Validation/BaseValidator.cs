@@ -25,7 +25,7 @@ namespace CommandModule.Infrastructure.Validation
                 return false;
             }
 
-            var isValidParameter = tokens[1].Count() > 1 && ValidateParameter(tokens[1]);
+            var isValidParameter = tokens[1].Count() > 0 && ValidateParameter(tokens[1]);
 
             if (!isValidParameter)
             {

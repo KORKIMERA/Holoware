@@ -36,12 +36,12 @@ namespace ArchitectureModule.Infrastructure
         }
         #endregion
 
-        public void AddLayer(Layer layer)
+        public void AddModule(Layer module)
         {
             throw new NotImplementedException();
         }
 
-        public Layer GetLayer(string layerId)
+        public Layer GetLayer(string moduleId)
         {
             throw new NotImplementedException();
         }
@@ -61,12 +61,12 @@ namespace ArchitectureModule.Infrastructure
             throw new NotImplementedException();
         }
 
-        public void RemoveLayer(string layerId)
+        public void RemoveModule(string moduleId)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveLayer(Layer layer)
+        public void RemoveLayer(Layer module)
         {
             throw new NotImplementedException();
         }

@@ -9,11 +9,11 @@
              d:DesignHeight="300" d:DesignWidth="300">
     
     <UserControl.InputBindings>
-        <KeyBinding Command="{Binding AddLayerCommand}" Key="A" Modifiers="Shift" />
-        <KeyBinding Command="{Binding RemoveLayerCommand}" Key="R" Modifiers="Shift" />
-        <KeyBinding Command="{Binding ViewLayerCommand}" Key="V" Modifiers="Shift" />
+        <KeyBinding Command="{Binding AddModuleCommand}" Key="A" Modifiers="Shift" />
+        <KeyBinding Command="{Binding RemoveModuleCommand}" Key="R" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ViewModuleCommand}" Key="V" Modifiers="Shift" />
         <KeyBinding Command="{Binding ExecuteCommand}" CommandParameter="{Binding ConsoleLine}" Key="Enter" />
-        <KeyBinding Command="{Binding LayerDefinitionCommand}" Key="F12" />
+        <KeyBinding Command="{Binding ModuleDefinitionCommand}" Key="F12" />
     </UserControl.InputBindings>
 
     <UserControl.DataContext>

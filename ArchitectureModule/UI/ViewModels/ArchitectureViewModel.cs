@@ -20,57 +20,29 @@ namespace ArchitectureModule.ViewModels
         }
 
         #region Properties
-        //ObservableCollection<ConsoleLine> _consoleLines = new ObservableCollection<ConsoleLine>();
-        //public ObservableCollection<ConsoleLine> ConsoleLines
-        //{
-        //    get { return _consoleLines; }
-        //    set
-        //    {
-        //        if (_consoleLines != value)
-        //        {
-        //            _consoleLines = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-
-        //ConsoleLine _consoleLine = null;
-        //public ConsoleLine ConsoleLine
-        //{
-        //    get { return _consoleLine; }
-        //    set
-        //    {
-        //        if (_consoleLine != value)
-        //        {
-        //            _consoleLine = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-
-        ObservableCollection<Layer> _layers = new ObservableCollection<Layer>();
+        ObservableCollection<Layer> _modules = new ObservableCollection<Layer>();
         public ObservableCollection<Layer> Layers
         {
-            get { return _layers; }
+            get { return _modules; }
             set
             {
-                if (_layers != value)
+                if (_modules != value)
                 {
-                    _layers = value;
+                    _modules = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        Layer _selectedLayer = null;
+        Layer _selectedModule = null;
         public Layer SelectedLayer
         {
-            get { return _selectedLayer; }
+            get { return _selectedModule; }
             set
             {
-                if (_selectedLayer != value)
+                if (_selectedModule != value)
                 {
-                    _selectedLayer = value;
+                    _selectedModule = value;
                     OnPropertyChanged();
                 }
             }
@@ -110,16 +82,16 @@ namespace ArchitectureModule.ViewModels
 
             switch (rootCommand)
             {
-                case "al":
-                case "addlayer":
+                case "am":
+                case "addmodule":
                     {
                         SelectedLayer = new Layer() { Id = layerName, Modules = new ObservableCollection<Module>() };
                         Layers.Add(SelectedLayer);
                         break;
                     }
 
-                case "rl":
-                case "removelayer":
+                case "rm":
+                case "removemodule":
                     {
                         SelectedLayer = Layers.Where(l => l.Id == layerName).SingleOrDefault();
 

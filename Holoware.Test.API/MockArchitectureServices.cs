@@ -32,7 +32,7 @@ namespace Holoware.TestAPI
         }
         #endregion
 
-        public void AddLayer(Layer layer)
+        public void AddModule(Layer layer)
         {
             _layers.Add(layer);
         }
@@ -62,7 +62,7 @@ namespace Holoware.TestAPI
             throw new NotImplementedException();
         }
 
-        public void RemoveLayer(string layerId)
+        public void RemoveModule(string layerId)
         {
             var layer = GetLayer(layerId);
 

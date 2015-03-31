@@ -45,9 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\RemoveLayerCommand.cs" />
-    <Compile Include="Commands\AddLayerCommand.cs" />
-    <Compile Include="Commands\ViewLayerCommand.cs" />
+    <Compile Include="Commands\RemoveModuleCommand.cs" />
+    <Compile Include="Commands\AddModuleCommand.cs" />
+    <Compile Include="Commands\ViewModuleCommand.cs" />
     <Compile Include="Infrastructure\ArchitectureModule.cs" />
     <Compile Include="Infrastructure\ArchitectureServices.cs" />
     <Compile Include="Infrastructure\ArchitectureDependencies.cs" />
