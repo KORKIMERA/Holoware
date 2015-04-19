@@ -9,15 +9,16 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
+
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
-                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Border SnapsToDevicePixels="True" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Columns="{TemplateBinding GridView.ColumnCollection}" Content="{TemplateBinding Content}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
+                            <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -89,13 +90,14 @@
 
                 <DataTrigger Binding="{Binding Status}" Value="{x:Static commandInfrastructure:CommandStatus.Failed}">
                     <DataTrigger.EnterActions>
+
                         <BeginStoryboard Storyboard="{StaticResource CommandFailedStory}"/>
                     </DataTrigger.EnterActions>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
         <ListView x:Name="ConsoleView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ElementName=UserControl,Path=ConsoleLinesSource}"
                   ClipToBounds="True" SelectedItem="{Binding ConsoleLine}" Margin="5"
@@ -119,6 +121,19 @@
                     <Setter Property="Background" Value="{x:Null}" />
                     <Setter Property="BorderBrush" Value="{x:Null}" />
                     <Setter Property="Focusable" Value="False" />
+
+                    <Style.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsMouseOver" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </Style.Triggers>
                 </Style>
             </ListView.ItemContainerStyle>
 

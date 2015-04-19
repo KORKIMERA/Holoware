@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="_Bootstrap.cs" />
     <Compile Include="_WorkflowOrchestrator.cs" />
     <Compile Include="_Class.cs" />
