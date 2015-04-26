@@ -1,137 +1,172 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
-//namespace Bizmonger.Patterns
-//{
-//    public class MessageBus
-//    {
-//        #region Singleton
-//        static MessageBus _messageBus = null;
-//        private MessageBus() { }
+namespace Bizmonger.Patterns
+{
+    public class MessageBus
+    {
+        #region Singleton
+        static MessageBus _messageBus = null;
+        private MessageBus() { }
 
-//        public static MessageBus Instance
-//        {
-//            get
-//            {
-//                if (_messageBus == null)
-//                {
-//                    _messageBus = new MessageBus();
-//                }
+        public static MessageBus Instance
+        {
+            get
+            {
+                if (_messageBus == null)
+                {
+                    _messageBus = new MessageBus();
+                }
 
-//                return _messageBus;
-//            }
-//        }
-//        #endregion
+                return _messageBus;
+            }
+        }
+        #endregion
 
-//        #region Members
-//        List<Observer> _observers = new List<Observer>();
-//        List<Observer> _oneTimeObservers = new List<Observer>();
-//        List<Observer> _waitingSubscribers = new List<Observer>();
-//        List<Observer> _waitingUnsubscribers = new List<Observer>();
+        #region Members
+        Dictionary<string, List<Observer>> _observers = new Dictionary<string, List<Observer>>();
+        Dictionary<string, List<Observer>> _oneTimeObservers = new Dictionary<string, List<Observer>>();
+        Dictionary<string, List<Observer>> _waitingSubscribers = new Dictionary<string, List<Observer>>();
+        Dictionary<string, List<Observer>> _waitingUnsubscribers = new Dictionary<string, List<Observer>>();
 
-//        int _publishingCount = 0;
-//        #endregion
+        int _publishingCount = 0;
+        #endregion
 
-//        public void Subscribe(string message, Action<object> response)
-//        {
-//            Subscribe(message, response, _observers);
-//        }
+        public void Subscribe(string subscription, Action<object> response)
+        {
+            Subscribe(subscription, response, _observers);
+        }
 
-//        public void SubscribeFirstPublication(string message, Action<object> response)
-//        {
-//            Subscribe(message, response, _oneTimeObservers);
-//        }
+        public void SubscribeFirstPublication(string subscription, Action<object> response)
+        {
+            Subscribe(subscription, response, _oneTimeObservers);
+        }
 
-//        public int Unsubscribe(string message, Action<object> response)
-//        {
-//            var observers = new List<Observer>(_observers.Where(o => o.Respond == response).ToList());
-//            observers.AddRange(_waitingSubscribers.Where(o => o.Respond == response));
-//            observers.AddRange(_oneTimeObservers.Where(o => o.Respond == response));
+        public int Unsubscribe(string subscription, Action<object> response)
+        {
+            List<Observer> observersToUnsubscribe = null;
+            var found = _observers.TryGetValue(subscription, out observersToUnsubscribe);
 
-//            if (_publishingCount == 0)
-//            {
-//                observers.ForEach(o => _observers.Remove(o));
-//            }
+            var waitingSubscribers = new List<Observer>();
+            _waitingSubscribers.Values.ToList().ForEach(o => waitingSubscribers.AddRange(o));
+            observersToUnsubscribe.AddRange(waitingSubscribers.Where(o => o.Respond == response));
 
-//            else
-//            {
-//                _waitingUnsubscribers.AddRange(observers);
-//            }
+            var oneTimeObservers = new List<Observer>();
+            _oneTimeObservers.Values.ToList().ForEach(o => oneTimeObservers.AddRange(o));
+            observersToUnsubscribe.AddRange(oneTimeObservers.Where(o => o.Respond == response));
 
-//            return observers.Count;
-//        }
+            if (_publishingCount == 0)
+            {
+                observersToUnsubscribe.ForEach(o => _observers.Remove(o.Subscription));
+            }
 
-//        public int Unsubscribe(string subscription)
-//        {
-//            var observers = new List<Observer>(_observers.Where(o => o.Subscription == subscription).ToList());
-//            observers.AddRange(_waitingSubscribers.Where(o => o.Subscription == subscription));
-//            observers.AddRange(_oneTimeObservers.Where(o => o.Subscription == subscription));
+            else
+            {
+                waitingSubscribers.AddRange(observersToUnsubscribe);
+            }
 
-//            if (_publishingCount == 0)
-//            {
-//                observers.ForEach(o => _observers.Remove(o));
-//            }
+            return observersToUnsubscribe.Count;
+        }
 
-//            else
-//            {
-//                _waitingUnsubscribers.AddRange(observers);
-//            }
+        public int Unsubscribe(string subscription)
+        {
+            List<Observer> foundObservers = null;
+            var found = _observers.TryGetValue(subscription, out foundObservers);
 
-//            return observers.Count;
-//        }
+            if (!found)
+            {
+                foundObservers = new List<Observer>();
+                _observers.Add(subscription, foundObservers);
+            }
 
-//        public void Publish(string message, object payload = null)
-//        {
-//            _publishingCount++;
+            foundObservers.AddRange(_waitingSubscribers[subscription]);
+            foundObservers.AddRange(_oneTimeObservers[subscription]);
 
-//            Publish(_observers, message, payload);
-//            Publish(_oneTimeObservers, message, payload);
-//            Publish(_waitingSubscribers, message, payload);
+            if (_publishingCount == 0)
+            {
+                _observers.Remove(subscription);
+            }
 
-//            _oneTimeObservers.RemoveAll(o => o.Subscription == message);
-//            _waitingUnsubscribers.Clear();
+            else
+            {
+                _waitingUnsubscribers[subscription]?.AddRange(foundObservers);
+            }
 
-//            _publishingCount--;
-//        }
+            return foundObservers.Count;
+        }
 
-//        private void Publish(List<Observer> observers, string message, object payload)
-//        {
-//            Debug.Assert(_publishingCount >= 0);
+        public void Publish(string subscription, object payload = null)
+        {
+            _publishingCount++;
 
-//            var subscribers = observers.Where(o => o.Subscription.ToLower() == message.ToLower());
-//            subscribers.ToList().ForEach(s => s.Respond(payload));
-//        }
+            Publish(_observers, subscription, payload);
+            Publish(_oneTimeObservers, subscription, payload);
+            Publish(_waitingSubscribers, subscription, payload);
 
-//        public IEnumerable<Observer> GetObservers(string subscription)
-//        {
-//            var observers = new List<Observer>(_observers.Where(o => o.Subscription == subscription));
-//            return observers;
-//        }
+            _oneTimeObservers.Remove(subscription);
+            _waitingUnsubscribers.Clear();
 
-//        public void Clear()
-//        {
-//            _observers.Clear();
-//            _oneTimeObservers.Clear();
-//        }
+            _publishingCount--;
+        }
 
-//        #region Helpers
-//        private void Subscribe(string message, Action<object> response, List<Observer> observers)
-//        {
-//            Debug.Assert(_publishingCount >= 0);
+        private void Publish(Dictionary<string, List<Observer>> observers, string subscription, object payload)
+        {
+            Debug.Assert(_publishingCount >= 0);
 
-//            var observer = new Observer() { Subscription = message, Respond = response };
+            List<Observer> foundObservers = null;
+            observers.TryGetValue(subscription, out foundObservers);
 
-//            if (_publishingCount == 0)
-//            {
-//                observers.Add(observer);
-//            }
-//            else
-//            {
-//                _waitingSubscribers.Add(observer);
-//            }
-//        }
-//        #endregion
-//    }
-//}
+            foundObservers?.ToList().ForEach(o => o.Respond(payload));
+        }
+
+        public IEnumerable<Observer> GetObservers(string subscription)
+        {
+            List<Observer> foundObservers = null;
+            _observers.TryGetValue(subscription, out foundObservers);
+
+            return foundObservers;
+        }
+
+        public void Clear()
+        {
+            _observers.Clear();
+            _oneTimeObservers.Clear();
+        }
+
+        #region Helpers
+        private void Subscribe(string subscription, Action<object> response, Dictionary<string, List<Observer>> observers)
+        {
+            Debug.Assert(_publishingCount >= 0);
+
+            var observer = new Observer() { Subscription = subscription, Respond = response };
+
+            if (_publishingCount == 0)
+            {
+                Add(subscription, observers, observer);
+            }
+            else
+            {
+                Add(subscription, _waitingSubscribers, observer);
+            }
+        }
+
+        private static void Add(string subscription, Dictionary<string, List<Observer>> observers, Observer observer)
+        {
+            List<Observer> foundObservers = null;
+            var observersExist = observers.TryGetValue(subscription, out foundObservers);
+
+            if (observersExist)
+            {
+                foundObservers.Add(observer);
+            }
+            else
+            {
+                foundObservers = new List<Observer>() { observer };
+                observers.Add(subscription, foundObservers);
+            }
+        }
+        #endregion
+    }
+}

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DependenciesModule</RootNamespace>
     <AssemblyName>DependenciesModule</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.3</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,10 +67,6 @@
     <ProjectReference Include="..\ModuleModule\ModuleModule.csproj">
       <Project>{3e0f4418-8b7b-45db-a22f-00ec5b448f7f}</Project>
       <Name>ModuleModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModulesModule\ModulesModule.csproj">
-      <Project>{13b10100-1422-47fe-9fe1-ab9c3f357dfe}</Project>
-      <Name>ModulesModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\NotificationModule\MessageModule.csproj">
       <Project>{07a964ac-bdcf-42a8-b12c-c91d4ff29ba6}</Project>
